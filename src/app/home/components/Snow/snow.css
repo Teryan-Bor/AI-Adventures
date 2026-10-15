@@ -5,3 +5,46 @@
     pointer-events: none;
     z-index: 1;
 }
+
+.flake {
+	position: absolute;
+	left: var(--x);
+	bottom: 0;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
+	background-color: white;
+	animation: 
+		rise var(--duration) linear var(--delay) infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: var(--opacity);
+    }
+
+    90% {
+        opacity: var(--opacity);
+
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* @keyframes sway {
+    from {
+        transform: translateX(calc(var(--drift) * -1));
+    }
+
+    to {
+        transform: translateX(var(--drift));
+    }
+} */

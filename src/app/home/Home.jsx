@@ -1,20 +1,12 @@
 import Header from "../nav/header/Header";
 import { Hero } from "./components/Hero/Hero";
+import { Snow } from "./components/Snow/Snow";
 import "./home.css";
 
 const Hello = () => {
   return (
-    <div className="page">
-
-      <Hero section="Hero Section via Props" />
-      <Header />
-
-      <footer className="footer">
-        <p>footer 1</p>
-        <p>footer 2</p>
-        <p>footer 3</p>
-        <p>footer 4</p>
-      </footer>
+    <div className="welcome_section">
+      <Snow />
     </div>
   )
 }
