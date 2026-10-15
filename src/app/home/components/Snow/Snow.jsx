@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../Snow/snow.css";
 
 const random = (min, max) => {
@@ -8,7 +8,7 @@ const random = (min, max) => {
 	return Math.round(randVal * 10) / 10
 }
 
-export const Snow = () => {
+export const Snow = ({ stageIndex }) => {
 	const [flakesArr, setFlakesArr] = useState([]);
 
 	useEffect(() => {
@@ -21,9 +21,9 @@ export const Snow = () => {
 			let duration = 20 - t * (20 - 8);
 			duration = Math.round(duration * 10) / 10;
 
-			const opacity = 0.3 + t * 0.6
+			const opacity = 0.3 + t * 0.6;
 
-			const randomObject = {
+			arr.push({
 				id: i,
 				x: random(0, 97),
 				duration,
@@ -32,20 +32,22 @@ export const Snow = () => {
 				drift: random(10, 40),
 				driftDuration: random(3, 8),
 				opacity,
-			}
-
-			arr.push(randomObject);
+			});
 		}
 
 		setFlakesArr(arr);
-	}, [])
-
-
+	}, []);
 
 	return (
-		<div className="snow-layer_section">
+		<div
+			className="snow-layer_section"
+			style={{
+				'opacity': stageIndex === 0 ? 1 : 0,
+				'transition': 'opacity 0.2s ease-in-out'
+			}}
+		>
 			{flakesArr.map(flake => (
-				<span 
+				<span
 					key={flake.id}
 					className="flake-wrapper"
 					style={{
@@ -55,9 +57,7 @@ export const Snow = () => {
 						'--delay': `${flake.delay}s`,
 						'--opacity': `${flake.opacity}`
 					}}
-
-					>
-				
+				>
 					<span
 						className="flake"
 						style={{

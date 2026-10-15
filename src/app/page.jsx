@@ -1,8 +1,8 @@
-import Hello from "./home/Home"
+import HomePage from "./home/Home"
 
 const Page = () => {
     return (
-        <Hello/>
+        <HomePage />
     )
 }
 
