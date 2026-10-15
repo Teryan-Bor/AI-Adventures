@@ -47,17 +47,26 @@ export const Snow = () => {
 			{flakesArr.map(flake => (
 				<span 
 					key={flake.id}
-					className="flake"
+					className="flake-wrapper"
 					style={{
 						'--x': `${flake.x}%`,
-						'--duration': `${flake.duration}s`,
 						'--size': `${flake.size}px`,
+						'--duration': `${flake.duration}s`,
 						'--delay': `${flake.delay}s`,
-						// '--drift': `${flake.drift}px`,
-						// '--driftDuration': `${flake.driftDuration}s`,
 						'--opacity': `${flake.opacity}`
 					}}
-				/>
+
+					>
+				
+					<span
+						className="flake"
+						style={{
+							'--drift': `${flake.drift}px`,
+							'--driftDuration': `${flake.driftDuration}s`
+						}}
+
+					/>
+				</span>
 			))}
 		</div>
 	)

@@ -1,50 +1,56 @@
 .snow-layer_section {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.flake-wrapper {
+	position: absolute;
+	left: var(--x);
+	width: var(--size);
+	aspect-ratio: 1;
+	bottom: 0;
+	animation: rise var(--duration) linear var(--delay) infinite;
 }
 
 .flake {
-	position: absolute;
-	left: var(--x);
-	bottom: 0;
-	width: var(--size);
-	height: var(--size);
+	display: block;
+	width: inherit;
+	aspect-ratio: 1;
 	border-radius: 50%;
 	background-color: white;
-	animation: 
-		rise var(--duration) linear var(--delay) infinite;
+	animation: sway var(--driftDuration) ease-in-out infinite alternate;
 }
 
 @keyframes rise {
-    0% {
-        transform: translateY(0);
-        opacity: 0;
-    }
+	0% {
+		transform: translateY(0);
+		opacity: 0;
+	}
 
-    10% {
-        opacity: var(--opacity);
-    }
+	10% {
+		opacity: var(--opacity);
+	}
 
-    90% {
-        opacity: var(--opacity);
+	90% {
+		opacity: var(--opacity);
 
-    }
+	}
 
-    100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
+	100% {
+		transform: translateY(-110vh);
+		opacity: 0;
+	}
 }
 
-/* @keyframes sway {
-    from {
-        transform: translateX(calc(var(--drift) * -1));
-    }
+@keyframes sway {
+	from {
+		transform: translateX(calc(var(--drift) * -1));
+	}
 
-    to {
-        transform: translateX(var(--drift));
-    }
-} */
+	to {
+		transform: translateX(var(--drift));
+	}
+}
