@@ -1,0 +1,56 @@
+.hot-layer_section {
+    position: absolute;
+    inset: 0;
+    background: url(../../assets/backgrounds/bg-3-last-lantern-road.png) no-repeat center / cover;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hot-wrapper {
+    position: absolute;
+    left: var(--x);
+    bottom: -10%;
+    width: var(--size);
+    aspect-ratio: 1;
+    animation: hotRise var(--duration) linear 0.2s infinite;
+}
+
+.hot {
+    display: block;
+    width: inherit;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: brown;
+    animation: hotDrift var(--driftDuration) linear infinite alternate;
+}
+
+@keyframes hotRise {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    10% {
+        opacity: var(--opacity);
+    }
+
+    90% {
+        opacity: var(--opacity);
+    }
+
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+@keyframes hotDrift {
+    from {
+        transform: translateX(calc(var(--drift) * -1));
+    }
+    
+    to {
+        transform: translateX((var(--drift)));
+    }
+}

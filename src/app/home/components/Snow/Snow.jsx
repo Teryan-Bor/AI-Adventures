@@ -1,12 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from "react";
 import "../Snow/snow.css";
-
-const random = (min, max) => {
-	const randVal = min + Math.random() * (max - min);
-
-	return Math.round(randVal * 10) / 10
-}
+import random from "../../utils/random";
 
 export const Snow = ({ stageIndex }) => {
 	const [flakesArr, setFlakesArr] = useState([]);

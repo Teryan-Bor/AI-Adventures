@@ -1,12 +1,15 @@
 import "./stagesTabs.css";
 
-const StagesTabs = () => {
+const StagesTabs = ({ stageIndex }) => {
 
 	return (
 		<div className="stages-tabs">
-			<div className="stage"></div>
-			<div className="stage"></div>
-			<div className="stage"></div>
+			{[0,1,2].map(i => (
+				<div 
+					key={i}
+					className={`stage ${i === stageIndex ? "active" : ""}`} 
+				/>
+			))} 
 		</div>
 	)
 }

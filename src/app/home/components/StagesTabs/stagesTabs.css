@@ -3,26 +3,26 @@
     left: var(--padding-inline);
     bottom: 10%;
 
-    width: 30%;
+    width: 70%;
     display: flex;
     flex-direction: inline;
     flex-wrap: wrap;
-    justify-content: space-between;
-
+    justify-content: flex-start;
+    gap: 30px;
     z-index: 10;
 }
 
 .stage {
     position: relative;
-    width: 100px;
+    width: 200px;
     height: 5px;
     border-radius: 15px;
     background-color: grey;
     overflow: hidden;
 }
 
-.stage:hover::after {
-    transform: scaleX(1);
+.stage.active::after {
+    animation: stage 8s linear 1;
 }
 
 .stage::after {
@@ -31,11 +31,16 @@
     top: 0;
     left: 0;
     height: inherit;
-    width: inherit;
     background-color: orangered;
-
-    transform: scaleX(0);
     transform-origin: left center;
+}
 
-    transition: transform 2s linear 
+@keyframes stage {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: inherit
+    }
 }
