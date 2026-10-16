@@ -35,7 +35,7 @@ export const Snow = ({ stageIndex }) => {
 
 	return (
 		<div
-			className="snow-layer_section"
+			className="layer_section snow"
 			style={{
 				'opacity': stageIndex === 0 ? 1 : 0,
 				'transition': 'opacity 0.2s ease-in-out'
@@ -54,7 +54,7 @@ export const Snow = ({ stageIndex }) => {
 					}}
 				>
 					<span
-						className="flake"
+						className="flake snow"
 						style={{
 							'--drift': `${flake.drift}px`,
 							'--driftDuration': `${flake.driftDuration}s`

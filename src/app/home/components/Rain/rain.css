@@ -1,13 +1,9 @@
-.rain-layer_section {
-    position: absolute;
-    inset: 0;
-    background: url(../../assets/backgrounds/bg-2-ash-over-neon.png) no-repeat center / cover;
-    z-index: 1;
-    pointer-events: none;
-    overflow: hidden;
+.layer_section.rain {
+    height: 100vh;
+    background-image: url(../../assets/backgrounds/bg-2-ash-over-neon.png);
 }
 
-.rain {
+.flake-rain {
     position: absolute;
     left: var(--x);
     top: -10vh;

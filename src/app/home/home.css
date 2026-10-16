@@ -15,3 +15,61 @@
     position: relative;
 }
 
+.layer_section {
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.flake-wrapper {
+    position: absolute;
+	left: var(--x);
+	width: var(--size);
+	aspect-ratio: 1;
+	bottom: 0;
+	animation: rise var(--duration) linear var(--delay) infinite;
+}
+
+.flake {
+	display: block;
+	width: inherit;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	animation: sway var(--driftDuration) ease-in-out infinite alternate;
+}
+
+@keyframes rise {
+	0% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+
+	10% {
+		opacity: var(--opacity);
+	}
+
+	90% {
+		opacity: var(--opacity);
+
+	}
+
+	100% {
+		transform: translateY(-110vh);
+		opacity: 0;
+	}
+}
+
+@keyframes sway {
+	from {
+		transform: translateX(calc(var(--drift) * -1));
+	}
+
+	to {
+		transform: translateX(var(--drift));
+	}
+}

@@ -33,7 +33,7 @@ const Hot = ({ stageIndex }) => {
 
 	return (
 		<div
-			className="hot-layer_section"
+			className="layer_section hot"
 			style={{
 				'opacity': stageIndex === 2 ? '1' : '0',
 				'transition': 'opacity 0.2s linear'
@@ -42,7 +42,7 @@ const Hot = ({ stageIndex }) => {
 			{hotArr.map(item => (
 				<span
 					key={item.id}
-					className="hot-wrapper"
+					className="flake-wrapper hot"
 					style={{
 						'--x': `${item.x}%`,
 						'--size': `${item.size}px`,
@@ -52,7 +52,7 @@ const Hot = ({ stageIndex }) => {
 					}}
 				>
 					<span
-						className="hot"
+						className="flake hot"
 						style={{
 							'--drift': `${item.drift}px`,
 							'--driftDuration': `${item.driftDuration}s`

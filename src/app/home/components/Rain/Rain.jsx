@@ -32,7 +32,7 @@ const Rain = ({stageIndex}) => {
 
 	return (
 		<div 
-			className="rain-layer_section"
+			className="layer_section rain"
 			style={{
 				'opacity': stageIndex === 1 ? 1 : 0,
 				'transition': 'opacity 0.2s ease-in-out'
@@ -41,7 +41,7 @@ const Rain = ({stageIndex}) => {
 			{rainsArr.map(rain => (
 				<span 
 					key={rain.id}
-					className="rain"
+					className="flake-rain"
 					style={{
 						'--x': `${rain.x}%`,
 						'--size': `${rain.size}px`,
