@@ -1,0 +1,29 @@
+.header-container {
+	width: 100%;
+	padding: 20px var(--padding-inline);
+	display: grid;
+	align-items: center;
+	grid-template-columns: 1fr 2fr;
+	border: 1px solid red;
+}
+
+.logo_header {
+	font-size: clamp(20px, 3vw, 100px);
+}
+
+.gradient-text {
+	background: var(--logo-gradient);
+	background-clip: text;
+	color: transparent;
+}
+
+.nav-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 10px;
+
+	& > a {
+		font-size: clamp(8px, 1.3vw, 32px);
+	}
+}

@@ -1,13 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --padding-inline: clamp(15px, 6vw, 150px);
-}
-
 .welcome_section {
     padding-inline: var(--padding-inline);
     width: 100%;

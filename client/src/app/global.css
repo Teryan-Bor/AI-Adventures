@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--logo-gradient: linear-gradient(70deg,
+			#000,
+			#fff,
+			orange);
+	--padding-inline: clamp(15px, 6vw, 150px);
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
