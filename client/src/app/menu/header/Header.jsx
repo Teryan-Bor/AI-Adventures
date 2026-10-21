@@ -11,6 +11,7 @@ const Header = () => {
 					<li className="menu_link"><a href="#">Novels</a></li>
 				</ul>
 			</nav>
+			<button className="register-button">Sign Up</button>
 		</header>
 	)
 }

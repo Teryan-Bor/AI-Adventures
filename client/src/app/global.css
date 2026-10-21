@@ -10,6 +10,7 @@
 			#fff,
 			orange);
 	--padding-inline: clamp(15px, 6vw, 150px);
+	--text-font-clamp: clamp(8px, 1.3vw, 32px);
 }
 
 a {
