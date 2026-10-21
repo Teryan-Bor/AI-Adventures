@@ -1,0 +1,27 @@
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & > p {
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-size: clamp(10px, 1.4vw, 30px);
+    }
+}
+
+.input-field {
+    width: 40%;
+    height: 5vh;
+    border-radius: 10px;
+    border: 2px solid rgb(26, 111, 180);
+    box-shadow: 0 0 5px rgb(52, 103, 145);
+    padding: 10px;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease, border 0.3s linear;
+
+    &:focus {
+        box-shadow: 0 0 3px 2px rgb(25, 160, 135);
+        border: 2px solid rgb(23, 102, 136)
+    }
+}

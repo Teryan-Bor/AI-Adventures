@@ -23,7 +23,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="welcome_section">
+      <div className="welcome_section container">
         <Snow stageIndex={activeIndex} />
         <Rain stageIndex={activeIndex} />
         <Hot stageIndex={activeIndex} />
