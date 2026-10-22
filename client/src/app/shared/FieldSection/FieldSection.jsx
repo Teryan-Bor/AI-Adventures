@@ -1,24 +1,44 @@
 import "./fieldSection.scss";
 
-export const FieldSection = ({ name, label, type, options = [] })  => {
+export const FieldSection = ({ name, value, type, placeholder, onChange, options = [] })  => {
 	return (
 		<div className="field-section">
-			<label htmlFor={name}> 
-				{label}
-			</label>
-
-			{options.length > 0 ? (
-				<select name={name} id={name} className="select-item">
+			{type === 'select' && (
+				<select 
+					name={name}
+					id={name}
+					value={value || ''}
+					onChange={e => onChange(name, e.target.value)}
+					className="select-item">
 					{options.map(optionItem => (
 						<option key={optionItem} value={optionItem}>
 							{optionItem}
 						</option>
 					))}
 				</select>
-			) : (
-				<input name={name} type={type} className="input-field" />
 			)}
-			
+
+			{type === 'textarea' && (
+				<textarea 
+					name={name}
+					id={name}
+					value={value || ''}
+					onChange={e => onChange(name, e.target.value)}
+					className="input-field textarea-field"
+				/>
+			)}
+
+			{type === 'text' && (
+				<input 
+					name={name}
+					type={type}
+					value={value || ''}
+					placeholder={placeholder}
+					onChange={(e) => onChange(name, e.target.value)}
+					className="input-field" 
+				/>
+			)}
+
 		</div>
 	)
 }

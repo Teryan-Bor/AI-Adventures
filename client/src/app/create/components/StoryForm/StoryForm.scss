@@ -13,14 +13,32 @@
 }
 
 .form-title {
-    text-align: center;
     font-family: "Plus Jakarta Sans";
-    font-size: clamp(24px, 3.3vw, 64px);
+    font-size: clamp(24px, 2.7vw, 52px);
     font-weight: 800;
 }
 
-.fields-wrapper {
+.question-card {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 20px;
+}
+
+.wizard-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    & > button {
+        width: clamp(60px, 12.5vw, 220px);
+        height: 5vh;
+        border-radius: 10px;
+        background-color: rgb(4, 75, 117);
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: aquamarine;
+        }
+    }
 }
