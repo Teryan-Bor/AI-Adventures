@@ -3,7 +3,8 @@ import "./fieldSection.scss";
 export const FieldSection = ({ name, value, type, placeholder, onChange, options = [] })  => {
 	return (
 		<div className="field-section">
-			{type === 'select' && (
+			{type === 'select' ? 
+			(
 				<select 
 					name={name}
 					id={name}
@@ -16,9 +17,7 @@ export const FieldSection = ({ name, value, type, placeholder, onChange, options
 						</option>
 					))}
 				</select>
-			)}
-
-			{type === 'textarea' && (
+			) : type === 'textarea' ? (
 				<textarea 
 					name={name}
 					id={name}
@@ -26,9 +25,7 @@ export const FieldSection = ({ name, value, type, placeholder, onChange, options
 					onChange={e => onChange(name, e.target.value)}
 					className="input-field textarea-field"
 				/>
-			)}
-
-			{type === 'text' && (
+			) : (
 				<input 
 					name={name}
 					type={type}
