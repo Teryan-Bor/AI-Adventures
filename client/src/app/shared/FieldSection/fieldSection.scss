@@ -1,0 +1,53 @@
+.field-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & > label {
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-size: clamp(10px, 1.2vw, 30px);
+    }
+}
+
+.input-field {
+    width: 60%;
+    height: 5vh;
+    border-radius: 10px;
+    border: 2px solid rgb(26, 111, 180);
+    box-shadow: 0 0 5px rgb(52, 103, 145);
+    padding: 10px;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease, border 0.3s linear;
+
+    &:focus {
+        box-shadow: 0 0 3px 2px rgb(25, 160, 135);
+        border: 2px solid rgb(23, 102, 136)
+    }
+}
+
+.select-item {
+    padding: 5px;
+    width: 15rem;
+    height: 30px;
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    background-color: rgb(144, 225, 185);
+    border: 1px solid rgb(159, 237, 251);
+    border-radius: 20px;
+
+    &:focus {
+        border: 2px solid rgb(13, 219, 123);
+        background-color: rgb(38, 181, 247);
+    }
+
+    & > option {
+        background-color: beige;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: rgb(255, 197, 125);
+        }
+    }
+}

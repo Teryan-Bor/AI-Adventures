@@ -61,6 +61,30 @@
 	src: url("../app/assets/fonts/roboto/roboto-v51-latin-900.woff2") format("woff2");
 }
 
+@font-face {
+  font-display: swap; 
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../app/assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-regular.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../app/assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-700.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../app/assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-800.woff2') format('woff2'); 
+}
+
 a {
 	text-decoration: none;
 }
@@ -75,5 +99,5 @@ ul {
 }
 
 .container {
-	padding-inline: var(--padding-inline);
+	padding: 20px var(--padding-inline);
 }
