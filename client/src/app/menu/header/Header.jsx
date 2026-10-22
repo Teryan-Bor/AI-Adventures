@@ -1,9 +1,15 @@
+import Link from "next/link";
 import "./header.scss";
 
 const Header = () => {
 	return (
 		<header className="header-container">
-			<h2 className="logo_header"><a href="#" className="gradient-text">AI Adventures</a></h2>
+			<Link href="/home">
+				<h2 className="logo_header gradient-text">
+					AI Adventures
+				</h2>
+			</Link>
+
 			<nav className="navbar">
 				<ul className="nav-list">
 					<li className="menu_link"><a href="#">About us</a></li>

@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Header from "../menu/header/Header";
 import { Snow } from "./components/Snow/Snow";
 import Rain from "./components/Rain/Rain";
 import Hot from "./components/Hot/Hot";
@@ -21,15 +20,12 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
-      <Header />
-      <div className="welcome_section container">
-        <Snow stageIndex={activeIndex} />
-        <Rain stageIndex={activeIndex} />
-        <Hot stageIndex={activeIndex} />
-        <StagesTabs stageIndex={activeIndex} />      
-      </div>
-    </>
+    <div className="welcome_section container">
+      <Snow stageIndex={activeIndex} />
+      <Rain stageIndex={activeIndex} />
+      <Hot stageIndex={activeIndex} />
+      <StagesTabs stageIndex={activeIndex} />      
+    </div>
     
   )
 }

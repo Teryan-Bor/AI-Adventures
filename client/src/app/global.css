@@ -85,6 +85,11 @@
   src: url('../app/assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-800.woff2') format('woff2'); 
 }
 
+body {
+	position: relative;
+	min-height: 100vh;
+}
+
 a {
 	text-decoration: none;
 }

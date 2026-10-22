@@ -1,10 +1,13 @@
 import CreatePage from "./create/CreatePage";
-// import HomePage from "./home/Home";
+import Header from "./menu/header/Header";
+import HomePage from "./home/Home";
 
 const Page = () => {
     return (
-        // <HomePage />
-        <CreatePage />
+        <div>
+					<HomePage />
+        </div>
+        
     )
 }
 
