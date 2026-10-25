@@ -1,7 +1,10 @@
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.schemas import StoryRequest
+from app.schemas import GeneratedStory, StoryRequest
 from app.services.gemini import generate_story
+
+logging.basicConfig(level=logging.INFO)
 
 app = FastAPI()
 app.add_middleware(
@@ -17,5 +20,5 @@ def root():
 
 @app.post("/create", response_model=GeneratedStory)
 def create_story(payload: StoryRequest):
-
+    logging.info("payload is: %s", payload)
     return generate_story(payload)

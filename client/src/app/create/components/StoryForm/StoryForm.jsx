@@ -1,12 +1,15 @@
-'use client';	
+'use client';
 import { FieldSection } from "@/app/shared/FieldSection/FieldSection";
 import { storyFields } from "./storyFields";
 import "./StoryForm.scss";
 import { useState } from "react";
+import { createStory } from "@/services/api";
+import { saveBook } from "@/services/storage";
 
 const StoryForm = () => {
 	const [currentStep, setCurrentStep] = useState(0);
 	const [formData, setFormData] = useState({});
+	const [loading, setLoading] = useState(false);
 
 	const isLastStep = currentStep === storyFields.length - 1;
 	const currentField = storyFields[currentStep];
@@ -16,6 +19,30 @@ const StoryForm = () => {
 			...prev,
 			[field]: value
 		}));
+	}
+
+	const handleSubmit = async (e) => {
+		console.log("handle submit function working");
+
+		e.preventDefault();
+		setLoading(true);
+		try {
+			console.log("formdata", formData);
+			const generated = await createStory(formData);
+			console.log(JSON.parse(generated), "generated story");
+
+			const book = {
+				id: crypto.randomUUID(),
+				title: generated.title,
+				pages: generated.pages,
+			};
+
+			saveBook(book);
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setLoading(false);
+		}
 	}
 
 	const handleNext = () => {
@@ -57,9 +84,18 @@ const StoryForm = () => {
 						Prev
 					</button>
 				)}
-				<button type="button" onClick={handleNext}>
-					{isLastStep ? 'Create a story' : 'Next'}
-				</button>
+
+				{!isLastStep && (
+					<button type="button" onClick={handleNext}> Next </button>
+				)}
+
+				{isLastStep && (
+					<button type="button" onClick={handleSubmit}>
+						{loading ? 'Generating a story' : 'Create a story'}
+					</button>
+				)}
+
+				
 			</div>
 
 		</div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import "./header.scss";
 
 const Header = () => {
+
 	return (
 		<header className="header-container">
 			<Link href="/home">
@@ -17,7 +18,7 @@ const Header = () => {
 					<li className="menu_link"><a href="#">Novels</a></li>
 				</ul>
 			</nav>
-			<button className="register-button">Sign Up</button>
+			<button className="register-button">Sign up</button>
 		</header>
 	)
 }
