@@ -6,3 +6,7 @@ class StoryRequest(BaseModel):
     world: str
     description: str
     steps: int
+
+class GeneratedStory(BaseModel):
+    title: str
+    pages: list[str]
