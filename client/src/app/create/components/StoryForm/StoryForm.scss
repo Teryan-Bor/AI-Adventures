@@ -31,8 +31,8 @@
     width: 100%;
 
     & > button {
-        width: clamp(60px, 12.5vw, 220px);
-        height: 5vh;
+        width: var(--button-width-clamp);
+	    aspect-ratio: var(--button-aspect-ratio);
         border-radius: 10px;
         background-color: rgb(4, 75, 117);
         transition: background-color 0.3s ease;

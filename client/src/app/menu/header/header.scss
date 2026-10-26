@@ -17,9 +17,9 @@
 }
 
 .gradient-text {
-	background: var(--logo-gradient);
 	background-clip: text;
 	color: transparent;
+	animation: gradient-animation 0.5s linear infinite;
 }
 
 .nav-list {
@@ -28,15 +28,24 @@
 	justify-content: space-around;
 	gap: 10px;
 
-	& > a {
-		font-size: var(--text-font-clamp)
+	& a {
+		font-size: var(--text-font-clamp);
+		font-family: "Roboto";
+		font-weight: 400;
+		color: var(--default-text-color);
+		transition: opacity 0.3s ease-in-out;
+
+		&:hover {
+			opacity: 0.5;
+		}
 	}
 }
 
 .register-button {
 	justify-self: center;
-	width: 120px;
-	height: 50px;
+	width: var(--button-width-clamp);
+	aspect-ratio: var(--button-aspect-ratio);
+	border-radius: 5px;
 	background-color: transparent;
 	border: 1px solid rgb(0, 0, 0);
 	font: normal normal bold var(--text-font-clamp) 'Arial', sans-serif;
@@ -44,5 +53,62 @@
 
 	&:hover {
 		background-color: orangered;
+	}
+}
+
+@keyframes gradient-animation {
+	0% {
+		background: linear-gradient(
+			100deg,
+			#c99f7f,
+			#4bd8ff,
+			#3042d1,
+			#661291
+		);
+		background-clip: text;
+	}
+
+	25% {
+		background: linear-gradient(
+			100deg,
+			#661291,
+			#c99f7f,
+			#4bd8ff,
+			#3042d1
+		);
+		background-clip: text;
+	}
+
+	50% {
+		background: linear-gradient(
+			100deg,
+			#3042d1,
+			#661291,
+			#c99f7f,
+			#4bd8ff
+		);
+		background-clip: text;
+	}
+
+	75% {
+		background: linear-gradient(
+			100deg,
+			#4bd8ff,
+			#3042d1,
+			#661291,
+			#c99f7f
+		);
+		background-clip: text;
+	}
+
+	100% {
+		background: linear-gradient(
+			100deg,
+			#c99f7f,
+			#4bd8ff,
+			#3042d1,
+			#661291
+		);
+		background-clip: text;
 	}
 }
