@@ -1,0 +1,121 @@
+// small size button
+$sm-button-width-clamp: clamp(60px, 11vw, 220px);
+$sm-button-aspect-ratio: 5/2;
+
+// medium size button
+$md-button-width-clamp: clamp(60px, 11vw, 220px);
+$md-button-aspect-ratio: 5/2;
+
+// large size button
+$lg-button-border-radius: 20px;
+
+
+.button {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: max-content;
+  font: normal normal bold var(--text-font-clamp) 'Arial', sans-serif;
+  transition: background-color 0.5s ease;
+  border-radius: 10px;
+
+  &.sm {
+    max-width: $sm-button-width-clamp;
+    aspect-ratio: var(--button-aspect-ratio);
+    border-radius: var(--sm-button-border-radius);
+  }
+
+  &.md {
+    max-width: $sm-button-width-clamp;
+    aspect-ratio: var(--button-aspect-ratio);
+  }
+
+  &:hover {
+    border: transparent;
+    background: transparent;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+
+      border-radius: inherit;
+
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+      -webkit-mask-composite: xor;
+
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+      mask-composite: exclude;
+      animation: border-animation 1s ease-in infinite;
+
+      &.spring {
+        background: conic-gradient(
+          var(--angle),
+          #287a05,
+          #54d21e,
+          #86ef59,
+          #efef1a,
+          #bdd80c,
+          #54d21e,
+          #368d10
+        );
+      }
+
+      &.summer {
+        background: conic-gradient(
+          var(--angle),
+          #ff5e7a,
+          #f48a11,
+          #f0a606,
+          #f0a606,
+          #ff5e7a
+        );
+      };
+
+      &.fall {
+        background: conic-gradient(
+          var(--angle),
+          #973602,
+          #c57505,
+          #f09606
+          #c57505,
+          #973602
+        );
+      };
+
+      &.winter {
+        background: conic-gradient(
+          var(--angle),
+          #8afcf6,
+          #0f8bc1,
+          #0566ab,
+          #8afcf6,
+        );
+      };
+    }
+
+  }
+
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-animation {
+  to {
+    --angle: 360deg;
+  }
+}

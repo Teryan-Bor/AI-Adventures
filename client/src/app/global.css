@@ -6,10 +6,8 @@
 
 :root {
 	--padding-inline: clamp(15px, 6vw, 150px);
-	--text-font-clamp: clamp(8px, 1.3vw, 32px);
+	--text-font-clamp: clamp(8px, 1.4vw, 24px);
 	--default-text-color: white;
-	--button-width-clamp: clamp(60px, 11vw, 220px);
-	--button-aspect-ratio: 5/2
 }
 
 @font-face {
