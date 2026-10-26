@@ -3,12 +3,12 @@ import Header from "./menu/header/Header";
 import HomePage from "./home/Home";
 
 const Page = () => {
-    return (
-        <div>
-					<HomePage />
-        </div>
-        
-    )
+	return (
+		<div>
+			<HomePage />
+		</div>
+
+	)
 }
 
 export default Page

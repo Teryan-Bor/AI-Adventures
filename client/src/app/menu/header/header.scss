@@ -17,9 +17,78 @@
 }
 
 .gradient-text {
+	background-size: 200% 100%;
+	-webkit-background-clip: text;
 	background-clip: text;
+	-webkit-text-fill-color: transparent;
 	color: transparent;
-	animation: gradient-animation 0.5s linear infinite;
+
+	animation: gradient-animation 5s linear infinite;
+
+	&.spring {
+		background-image: linear-gradient(
+				310deg,
+				#287a05 0%,
+				#54d21e 5%,
+				#86ef59 10%,
+				#efef1a 25%,
+				#bdd80c 30%,
+				#54d21e 40%,
+				#368d10 45%,
+				#287a05 50%,
+				#86ef59 60%,
+				#bdd80c 75%,
+				#54d21e 85%,
+				#368d10 95%,
+				#287a05 100%);
+	}
+
+	&.summer {
+		background-image: linear-gradient(
+				310deg,
+				#ff5e7a 0%,
+				#eb4848 7.5%,
+				#f48a11 12.5%,
+				#f0a606 17.5%,
+				#f0d906 22.5%,
+				#f0a606 30%,
+				#f48a11 37.5%,
+				#f70202 42.5%,
+				#ff5e7a 50%,
+				#c80f0f 57.5%,
+				#f48a11 62.5%,
+				#f0a606 67.5%,
+				#f0d906 72.5%,
+				#f0a606 80%,
+				#f48a11 87.5%,
+				#eb4848 92.5%,
+				#ff5e7a 100%
+			);
+	}
+
+	&.fall {
+		background-image: linear-gradient(
+				120deg,
+				#973602 0%,
+				#c57505 10%,
+				#f0c906 25%,
+				#973602 40%,
+				#c57505 60%,
+				#f0c906 80%,
+				#973602 95%);
+	}
+
+	&.winter {
+		background-image: linear-gradient(
+				90deg,
+				#8afcf6 0%,
+				#0f8bc1 10%,
+				#0566ab 25%,
+				#8afcf6 45%,
+				#0f8bc1 65%,
+				#0566ab 75%,
+				#8afcf6 90%);
+	}
 }
 
 .nav-list {
@@ -41,74 +110,12 @@
 	}
 }
 
-.register-button {
-	justify-self: center;
-	width: var(--button-width-clamp);
-	aspect-ratio: var(--button-aspect-ratio);
-	border-radius: 5px;
-	background-color: transparent;
-	border: 1px solid rgb(0, 0, 0);
-	font: normal normal bold var(--text-font-clamp) 'Arial', sans-serif;
-	transition: background-color 0.5s ease;
-
-	&:hover {
-		background-color: orangered;
-	}
-}
-
 @keyframes gradient-animation {
-	0% {
-		background: linear-gradient(
-			100deg,
-			#c99f7f,
-			#4bd8ff,
-			#3042d1,
-			#661291
-		);
-		background-clip: text;
+	from {
+		background-position: 100% 50%;
 	}
 
-	25% {
-		background: linear-gradient(
-			100deg,
-			#661291,
-			#c99f7f,
-			#4bd8ff,
-			#3042d1
-		);
-		background-clip: text;
-	}
-
-	50% {
-		background: linear-gradient(
-			100deg,
-			#3042d1,
-			#661291,
-			#c99f7f,
-			#4bd8ff
-		);
-		background-clip: text;
-	}
-
-	75% {
-		background: linear-gradient(
-			100deg,
-			#4bd8ff,
-			#3042d1,
-			#661291,
-			#c99f7f
-		);
-		background-clip: text;
-	}
-
-	100% {
-		background: linear-gradient(
-			100deg,
-			#c99f7f,
-			#4bd8ff,
-			#3042d1,
-			#661291
-		);
-		background-clip: text;
+	to {
+		background-position: 0% 50%;
 	}
 }

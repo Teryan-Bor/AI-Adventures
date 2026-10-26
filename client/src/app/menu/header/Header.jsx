@@ -1,12 +1,18 @@
+"use client";
 import Link from "next/link";
 import "./header.scss";
+import { useContext } from "react";
+import { StageContext } from "@/app/shared/StageContext";
 
 const Header = () => {
+	const { activeIndex } = useContext(StageContext);
+
+	const seasons = ["winter", "fall", "summer"];
 
 	return (
 		<header className="header-container">
 			<Link href="/home">
-				<h2 className="logo_header gradient-text">
+				<h2 className={`logo_header gradient-text ${seasons[activeIndex]}`}>
 					AI Adventures
 				</h2>
 			</Link>
@@ -18,7 +24,6 @@ const Header = () => {
 					<li className="menu_link"><a href="#">Novels</a></li>
 				</ul>
 			</nav>
-			<button className="register-button">Sign up</button>
 		</header>
 	)
 }
