@@ -16,6 +16,6 @@ export async function createStory(data) {
     return await response.json();
 
   } catch (error) {
-    console.log("Error:", error)
+    console.error("Error:", error);
   }  
 }

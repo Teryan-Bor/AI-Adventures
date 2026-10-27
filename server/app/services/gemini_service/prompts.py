@@ -1,16 +1,3 @@
-import json
-import os
-
-from dotenv import load_dotenv
-from google import genai
-from google.genai import types
-from app.schemas import StoryRequest
-
-load_dotenv()
-
-client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
-)
 
 STORYTELLER_SYSTEM_PROMPT = """
 You are a master children's storyteller, inspired by the timeless
@@ -115,8 +102,8 @@ The reader should finish the story feeling amazed,
 emotionally connected to the characters, and satisfied.
 """
 
-def generate_story(story: StoryRequest):
-    prompt = f"""
+def promptFn(story):
+    return f"""
         Write a complete, original children's adventure story.
 
 
@@ -188,20 +175,3 @@ def generate_story(story: StoryRequest):
         ]
         }}
         """
-
-    try:
-        response = client.models.generate_content(
-            model=os.getenv("GEMINI_MODEL"),
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=STORYTELLER_SYSTEM_PROMPT,
-                response_mime_type="application/json",
-            ),
-        )
-
-        story_data = json.loads(response.text)
-        return story_data
-
-    except Exception as e:
-        print("Error", e)
-        raise e

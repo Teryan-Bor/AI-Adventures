@@ -41,6 +41,8 @@ export const useFormHandle = () => {
         steps: Number(formData.steps),
       });
 
+      console.log("Generated Data", generated);
+
       // saveBook({
       //   id: crypto.randomUUID(),
       //   title: generated.title,
