@@ -10,8 +10,9 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
-    allow_methods=["POST"],
-    allow_headers=["Content-Type"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/")
@@ -20,5 +21,5 @@ def root():
 
 @app.post("/create", response_model=GeneratedStory)
 def create_story(payload: StoryRequest):
-    logging.info("payload is: %s", payload)
-    return generate_story(payload)
+    story = generate_story(payload)
+    return story

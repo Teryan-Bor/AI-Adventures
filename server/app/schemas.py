@@ -4,6 +4,7 @@ class StoryRequest(BaseModel):
     characterName: str
     genre: str
     world: str
+    mood: str
     description: str
     steps: int
 

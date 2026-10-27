@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { FieldSection } from "@/app/shared/FieldSection/FieldSection";
 import { storyFields } from "./storyFields";
 import "./StoryForm.scss";
@@ -7,9 +7,17 @@ import { Button } from "@/app/shared/Button/Button";
 
 const StoryForm = () => {
 	const {
-		currentStep, currentField, isLastStep, formData,
-    loading, error, canContinue,
-    handleChange, handleNext, handleBack, handleSubmit,
+		currentStep,
+		currentField,
+		isLastStep,
+		formData,
+		loading,
+		error,
+		canContinue,
+		handleChange,
+		handleNext,
+		handleBack,
+		handleSubmit,
 	} = useFormHandle();
 
 	return (
@@ -25,17 +33,16 @@ const StoryForm = () => {
 					<FieldSection
 						name={currentField.name}
 						type={currentField.type}
-						value={formData[currentField.name] || ''}
+						value={formData[currentField.name] || ""}
 						placeholder={currentField.placeholder}
 						onChange={handleChange}
 						options={currentField.options}
 					/>
-
 				</div>
 
 				<div className="wizard-buttons">
 					{currentStep > 0 && (
-						<Button 
+						<Button
 							type="button"
 							onClick={handleBack}
 							season={"winter"}
@@ -47,7 +54,7 @@ const StoryForm = () => {
 					)}
 
 					{!isLastStep && (
-						<Button 
+						<Button
 							type="button"
 							onClick={handleNext}
 							season={"winter"}
@@ -60,25 +67,20 @@ const StoryForm = () => {
 					)}
 
 					{isLastStep && (
-						<Button 
+						<Button
 							type="submit"
 							size="sm"
 							season={"winter"}
 							className="form-btn"
 							disabled={!canContinue}
 						>
-							{loading ? 'Generating...' : 'Create'}
+							{loading ? "Generating..." : "Create"}
 						</Button>
 					)}
-
-
 				</div>
-
 			</form>
 		</div>
+	);
+};
 
-
-	)
-}
-
-export default StoryForm
+export default StoryForm;

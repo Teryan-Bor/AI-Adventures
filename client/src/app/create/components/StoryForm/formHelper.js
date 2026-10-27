@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { storyFields } from "./storyFields";
-// import { createStory } from "../../services/api";
-// import { saveBook } from "../../services/storage";
+import { createStory } from "@/services/api";
+import { saveBook } from "@/services/storage";
 
 export const useFormHandle = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -34,17 +34,19 @@ export const useFormHandle = () => {
 
     setLoading(true);
     setError("");
-
+    
     try {
-      // const generated = await createStory({
-      //   ...formData,
-      //   steps: Number(formData.steps),
-      // });
+      const generated = await createStory({
+        ...formData,
+        steps: Number(formData.steps),
+      });
+
       // saveBook({
       //   id: crypto.randomUUID(),
       //   title: generated.title,
       //   pages: generated.pages,
       // });
+
     } catch (err) {
       console.error(err);
       setError("Could not create the story. Please try again.");
