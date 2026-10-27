@@ -7,9 +7,14 @@ import StagesTabs from "./components/StagesTabs/StagesTabs";
 import "./home.css";
 import { StageContext } from "../shared/StageContext/StageContext";
 import HeroSection from "./components/Hero/HeroSection";
+import { getCoordsAndWeather } from "@/services/helper";
 
 const HomePage = () => {
   const {activeIndex } = useContext(StageContext);
+
+  useEffect(() => {
+    getCoordsAndWeather();
+  }, [])
   
   return (
     <div className="welcome_section container">

@@ -1,7 +1,6 @@
 const API_URL = process.env.API_URL || "http://127.0.0.1:8000"
 
 export async function createStory(data) {
-
   try {
     const response = await fetch(`${API_URL}/create`, {
       method: "POST",
@@ -19,3 +18,18 @@ export async function createStory(data) {
     console.error("Error:", error);
   }  
 }
+
+export const fetchWeather = async (lat, lon) => {
+  let url = `${API_URL}/weather`;
+
+  if(lat && lon) {
+    url += `?lat=${lat}&lon=${lon}`;
+  }
+
+  const response = await fetch(url);
+  const data = await response.json();
+  
+  sessionStorage.setItem('user_weather', JSON.stringify(data));
+  return data;
+}
+
