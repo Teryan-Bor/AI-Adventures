@@ -1,10 +1,27 @@
+.create-section {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-wrapper {
+    position: absolute;
+    height: 110vh;
+    width: 100%;
+    margin-top: -100px;
+    background: url("https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2024/05/2025-porsche-911-gts-coupe.jpg") no-repeat center / cover;
+
+}
+
 .form-section {
     display: flex;
     gap: 20px;
     flex-direction: column;
     width: 60%;
+    height: 70vh;
+
     padding: 20px 15px;
-    border: 2px solid rgb(6, 0, 93);
     border-radius: 15px;
 
     background-color: rgba(255, 255, 255, 0.08);
@@ -29,16 +46,4 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-
-    & > button {
-        width: var(--button-width-clamp);
-	    aspect-ratio: var(--button-aspect-ratio);
-        border-radius: 10px;
-        background-color: rgb(4, 75, 117);
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: aquamarine;
-        }
-    }
 }

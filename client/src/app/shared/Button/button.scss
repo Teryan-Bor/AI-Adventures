@@ -1,11 +1,15 @@
 // small size button
-$sm-button-width-clamp: clamp(60px, 11vw, 220px);
-$button-aspect-ratio: 1;
+$sm-button-width-clamp: clamp(50px, 8vw, 220px);
+$sm-button-aspect-ratio: 3/1;
+$sm-button-border-radius: 10px;
+$sm-button-text: clamp(8px, 1.4vw, 24px);
+// $sm-button-animation-padding: 2px;
 
 // medium size button
 $md-button-width-clamp: clamp(60px, 11vw, 220px);
 $md-button-text: clamp(14px, 1.7vw, 28px);
 $md-button-aspect-ratio: 5/2;
+// $md-button-animation-padding: 3px;
 
 // large size button
 $lg-button-border-radius: 20px;
@@ -19,24 +23,33 @@ $lg-button-border-radius: 20px;
   justify-content: center;
   align-items: center;
 
-  font-size: $md-button-text;
   font-family: "Montserrat";
   font-weight: 500;
-  letter-spacing: 2px;
 
   transition: background-color 0.4s linear;
   color: black;
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &.sm {
     width: $sm-button-width-clamp;
-    aspect-ratio: var(--button-aspect-ratio);
-    border-radius: var(--sm-button-border-radius);
-  };
+    aspect-ratio: $sm-button-aspect-ratio;
+    border-radius: $sm-button-border-radius;
+  }
+
+  ;
 
   &.md {
+    letter-spacing: 2px;
     width: $md-button-width-clamp;
-    aspect-ratio: $button-aspect-ratio;
-  };
+    aspect-ratio: $md-button-aspect-ratio;
+    font-size: $md-button-text;
+  }
+
+  ;
 
   &.lg {
     width: 80%;
@@ -44,7 +57,7 @@ $lg-button-border-radius: 20px;
     border-radius: 15px;
   }
 
-  &:hover {
+  &:not(:disabled):hover {
     border: transparent;
     background: transparent !important;
 
@@ -52,6 +65,7 @@ $lg-button-border-radius: 20px;
       content: '';
       position: absolute;
       inset: 0;
+
       padding: 3px;
 
       border-radius: inherit;
@@ -70,80 +84,79 @@ $lg-button-border-radius: 20px;
       animation: border-animation 2s ease-in infinite;
     }
 
-  };
+  }
+
+  ;
 
   &.spring {
-    background-color:#a3e82c;
+    background-color: #a3e82c;
 
-    &:hover {
+    &:not(:disabled):hover {
       color: #b1e851;
+
+      &::before {
+        background: conic-gradient(from var(--angle),
+            #287a05,
+            #54d21e,
+            #86ef59,
+            #efef1a,
+            #bdd80c,
+            #54d21e,
+            #368d10);
+      }
     }
 
-    &:hover::before {
-    background: conic-gradient(
-      from var(--angle),
-        #287a05,
-        #54d21e,
-        #86ef59,
-        #efef1a,
-        #bdd80c,
-        #54d21e,
-        #368d10);
-  };
   }
 
   &.summer {
     background-color: #e8742c;
 
-    &:hover {
-      color: #eb3a57 ;
-    }
+    &:not(:disabled):hover {
+      color: #eb3a57;
 
-    &:hover::before {
-    background: conic-gradient(
-      from var(--angle),
-        #ff5e7a,
-        #f48a11,
-        #f0a606,
-        #f0a606,
-        #ff5e7a);
-  };
+      &::before {
+        background: conic-gradient(from var(--angle),
+            #ff5e7a,
+            #f48a11,
+            #f0a606,
+            #f0a606,
+            #ff5e7a);
+      }
+    }
   }
 
   &.fall {
     background-color: #c56b05;
 
-    &:hover {
+    &:not(:disabled):hover {
       color: #c58205;
-    }
 
-    &:hover::before {
-    background: conic-gradient(
-      from var(--angle),
-        #973602,
-        #c57505,
-        #f09606,
-        #c57505,
-        #973602);
-  };
+      &::before {
+        background: conic-gradient(from var(--angle),
+            #973602,
+            #c57505,
+            #f09606,
+            #c57505,
+            #973602);
+      }
+    }
   }
 
   &.winter {
     background-color: #8afcf6;
 
-    &:hover {
-      color: #8afcf6
-    }
+    &:not(:disabled):hover {
+      color: #8afcf6;
 
-    &:hover::before {
-    background: conic-gradient(
-      from var(--angle),
-        #8afcf6,
-        #0f8bc1,
-        #0566ab,
-        #8afcf6,
-      );
-  };
+      &::before {
+        background: conic-gradient(from var(--angle),
+            #8afcf6,
+            #0f8bc1,
+            #0566ab,
+            #8afcf6,
+          );
+      }
+    }
   }
 }
 

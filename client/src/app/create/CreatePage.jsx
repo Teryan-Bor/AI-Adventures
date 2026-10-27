@@ -3,9 +3,7 @@ import "./createPage.scss";
 
 const CreatePage = () => {
 	return (
-		<div className="create-section container">
 			<StoryForm />
-		</div>
 	)
 }
 
