@@ -15,7 +15,7 @@ const HeroSection = ({ activeIndex }) => {
 
       <Button
         season={seasons[activeIndex]}
-        size={''}
+        size={'lg'}
         href={'/create'}
       >
         Create

@@ -13,8 +13,6 @@ $lg-button-border-radius: 20px;
 
 .button {
   position: relative;
-  padding: 14px 10px;
-  width: 80%;
   height: auto;
 
   display: flex;
@@ -27,7 +25,6 @@ $lg-button-border-radius: 20px;
   letter-spacing: 2px;
 
   transition: background-color 0.4s linear;
-  border-radius: 15px;
   color: black;
 
   &.sm {
@@ -40,6 +37,12 @@ $lg-button-border-radius: 20px;
     width: $md-button-width-clamp;
     aspect-ratio: $button-aspect-ratio;
   };
+
+  &.lg {
+    width: 80%;
+    padding: 14px 10px;
+    border-radius: 15px;
+  }
 
   &:hover {
     border: transparent;
