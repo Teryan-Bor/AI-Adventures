@@ -2,12 +2,11 @@
 import Link from "next/link";
 import "./header.scss";
 import { useContext } from "react";
-import { StageContext } from "@/app/shared/StageContext";
+import { StageContext } from "@/app/shared/StageContext/StageContext";
+import { seasons } from "@/app/shared/seasons";
 
 const Header = () => {
 	const { activeIndex } = useContext(StageContext);
-
-	const seasons = ["winter", "fall", "summer"];
 
 	return (
 		<header className="header-container">

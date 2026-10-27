@@ -1,48 +1,7 @@
 .layer_section.snow {
-	height: 100vh;
 	background-image: url(../../assets/backgrounds/bg-1-drowned-cathedral.png);
 }
-
-/* .flake-wrapper {
-	position: absolute;
-	left: var(--x);
-	width: var(--size);
-	aspect-ratio: 1;
-	bottom: 0;
-	animation: rise var(--duration) linear var(--delay) infinite;
-} */
 
 .flake.snow {
 	background-color: white;
 }
-
-/* @keyframes rise {
-	0% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-
-	10% {
-		opacity: var(--opacity);
-	}
-
-	90% {
-		opacity: var(--opacity);
-
-	}
-
-	100% {
-		transform: translateY(-110vh);
-		opacity: 0;
-	}
-}
-
-@keyframes sway {
-	from {
-		transform: translateX(calc(var(--drift) * -1));
-	}
-
-	to {
-		transform: translateX(var(--drift));
-	}
-} */

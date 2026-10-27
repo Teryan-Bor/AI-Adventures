@@ -1,11 +1,11 @@
 .stages-tabs {
     position: absolute;
     left: var(--padding-inline);
-    bottom: 10%;
+    bottom: 20%;
 
     width: 70%;
     display: flex;
-    flex-direction: inline;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 30px;

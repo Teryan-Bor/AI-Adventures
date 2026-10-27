@@ -1,6 +1,6 @@
 import "./global.css";
 import Header from "./menu/header/Header";
-import { StageProvider } from "./shared/StageContext";
+import { StageProvider } from "./shared/StageContext/StageContext";
 
 export default function RootLayout({ children }) {
   return (
