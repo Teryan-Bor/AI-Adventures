@@ -1,5 +1,6 @@
 import logging
-from fastapi import FastAPI, Depends
+from typing import Annotated
+from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from app.schemas import GeneratedStory, StoryRequest
 from app.services.gemini_service.gemini import generate_story
@@ -24,7 +25,7 @@ def root():
     return {"message": "AI Adventures API is running!"}
 
 @app.get("/weather")
-async def get_weather(query: WeatherQuery = Depends() ):
+async def get_weather(query: Annotated[WeatherQuery, Query()]):
     return await getWeather(query)
 
 @app.post("/create", response_model=GeneratedStory)

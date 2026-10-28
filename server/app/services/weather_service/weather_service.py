@@ -8,19 +8,16 @@ load_dotenv()
 
 weather_api=os.getenv("WEATHER_API_KEY")
 
-async def getWeather(query: WeatherQuery, city="Yerevan"):
-
+async def getWeather(query: WeatherQuery):
     try:
-        if( query.lat and query.lat.strip() and 
-            query.lon and query.lon.strip()
-        ):
+        if(query.lat is not None and query.lon is not None):
             lat_float = float(query.lat)
             lon_float = float(query.lon)
 
             weather_href=f"https://api.openweathermap.org/data/2.5/weather?lat={lat_float}&lon={lon_float}&appid={weather_api}&units=metric"
         
         else:
-            weather_href=f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_api}&units=metric"
+            weather_href=f"https://api.openweathermap.org/data/2.5/weather?q={query.city}&appid={weather_api}&units=metric"
 
         async with httpx.AsyncClient() as client:
             response = await client.get(weather_href)

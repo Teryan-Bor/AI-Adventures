@@ -20,16 +20,33 @@ export async function createStory(data) {
 }
 
 export const fetchWeather = async (lat, lon) => {
-  let url = `${API_URL}/weather`;
+  const params = new URLSearchParams();
 
-  if(lat && lon) {
-    url += `?lat=${lat}&lon=${lon}`;
+  if(lat != null && lon != null) {
+    params.set("lat", lat);
+    params.set("lon", lon);
   }
 
+  const query = params.toString();
+
+  const url = `${API_URL}/weather${query ? `?${query}` : ""}`;
+
   const response = await fetch(url);
+
+  if(!response.ok) {
+    throw new Error(`Weather request failed: ${response.status}`)
+  }
+
   const data = await response.json();
+
+  console.log("Data", data);
+
+  try {
+   sessionStorage.setItem('user_weather', JSON.stringify(data));
+  } catch (error) {
+    throw new Error("Storage is unavailable")
+  }
   
-  sessionStorage.setItem('user_weather', JSON.stringify(data));
   return data;
 }
 

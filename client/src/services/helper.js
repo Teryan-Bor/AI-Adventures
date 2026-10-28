@@ -1,24 +1,19 @@
-import { fetchWeather } from "./api"
+import { fetchWeather } from "./api";
+
+const getPosition = async () => {
+  return new Promise((resolve) => {
+    if (!("geolocation" in navigator)) return resolve(null);
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => resolve({ lat: position.coords.latitude, lon: position.coords.longitude}),
+      () => resolve(null),
+      { timeout: 8000, maximumAge: 5*60*1000 }  
+    );
+  
+  });
+};
 
 export const getCoordsAndWeather = async () => {
-  return new Promise((resolve) => {
-    if("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-
-          const data = await fetchWeather(lat, lon);
-          resolve(data);
-        },
-
-        async (error) => {
-          const data = await fetchWeather(null, null);
-          resolve(data);
-        }
-      );
-    } else {
-      fetchWeather(null, null).then(resolve);
-    }
-  })
+  const coords = await getPosition();
+  return await fetchWeather(coords?.lat, coords?.lon);
 }
