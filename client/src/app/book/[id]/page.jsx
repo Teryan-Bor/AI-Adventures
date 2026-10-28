@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { getBookById } from "@/services/storage";
 import BookReader from "../components/BookReader/bookReader";
 import "./singleBook.scss";
 
-export default function BookPage() {
+function BookContent() {
   const { id } = useParams();
   const [book, setBook] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -15,7 +15,6 @@ export default function BookPage() {
     setBook(getBookById(id));
     setLoaded(true);
     /* eslint-enable react-hooks/set-state-in-effect */
-
   }, [id]);
 
   return (
@@ -29,5 +28,19 @@ export default function BookPage() {
         <BookReader key={book.id} title={book.title} pages={book.pages} />
       )}
     </main>
+  );
+}
+
+export default function BookPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="reader-wrap">
+          <p>Loading book...</p>
+        </main>
+      }
+    >
+      <BookContent />
+    </Suspense>
   );
 }
