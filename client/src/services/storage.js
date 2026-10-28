@@ -1,11 +1,17 @@
+const KEY = "book";
+
 export const saveBook = (book) => {
-  localStorage.setItem("book", JSON.stringify([book, ...getBooks()]));
+  localStorage.setItem(KEY, JSON.stringify([book, ...getBooks()]));
 }
 
 export const getBooks = () => {
-  const stored = localStorage.getItem("book")
-  const books = JSON.parse(stored);
-  return books;
+  try {
+    const stored = localStorage.getItem(KEY);
+    const parsed = stored ? JSON.parse(stored) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  } 
 }
 
 export const getBookById = (id) => {

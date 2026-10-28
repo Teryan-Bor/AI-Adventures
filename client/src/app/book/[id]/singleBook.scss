@@ -1,0 +1,124 @@
+$paper: #fff9eb;
+$ink: #3e3254;
+$muted: #786b86;
+$gold: #f4d18b;
+$cover-from: #4b3a78;
+$cover-to: #2c2349;
+
+.book-wrap {
+  display: flex;
+  justify-content: center;
+}
+//
+.book-page {
+  background: $paper;
+  color: $ink;
+  padding: 32px 28px 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  // тень у корешка
+  &:nth-child(odd) {
+    box-shadow: inset -14px 0 20px -12px rgba(0, 0, 0, 0.3);
+  }
+  &:nth-child(even) {
+    box-shadow: inset 14px 0 20px -12px rgba(0, 0, 0, 0.3);
+  }
+
+  // жёсткие обложки
+  &[data-density="hard"] {
+    background: linear-gradient(135deg, $cover-from, $cover-to);
+    color: $gold;
+    box-shadow: none;
+    justify-content: center;
+  }
+}
+
+.book-page-content {
+  flex: 1;
+  overflow: hidden;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+
+  p {
+    margin: 0 0 0.8em;
+    text-indent: 1.2em;
+  }
+}
+
+.book-page-number {
+  text-align: center;
+  font-size: 12px;
+  color: $muted;
+}
+//
+
+.book-cover {
+  text-align: center;
+
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+  }
+}
+
+.reader-wrap {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 70px 20px 120px;
+  min-height: 70vh;
+  color: #fff;
+}
+.reader-back {
+  color: #f4d18b;
+  text-decoration: none;
+}
+.reader-book {
+  text-align: center;
+}
+.reader-book h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  margin: 32px 0;
+}
+.reader-paper {
+  background: #fff9eb;
+  color: #3e3254;
+  border-radius: 12px;
+  box-shadow: 0 14px 35px #0004;
+  min-height: 330px;
+  padding: 52px 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.reader-paper p {
+  font-size: clamp(19px, 2.3vw, 25px);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+.reader-paper span {
+  font-size: 13px;
+  color: #786b86;
+  margin-top: 40px;
+}
+.reader-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  gap: 16px;
+}
+.reader-controls button {
+  background: #f4d18b;
+  color: #322549;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.reader-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
