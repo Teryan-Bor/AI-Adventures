@@ -39,10 +39,11 @@ export const fetchWeather = async (lat, lon) => {
 
   const data = await response.json();
 
-  console.log("Data", data);
-
   try {
-   sessionStorage.setItem('user_weather', JSON.stringify(data));
+   sessionStorage.setItem(
+    'user_weather',
+    JSON.stringify({ data, ts: Date.now() })
+  );
   } catch (error) {
     throw new Error("Storage is unavailable")
   }
