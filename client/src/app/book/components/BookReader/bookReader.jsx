@@ -26,7 +26,7 @@ const BookReader = ({ title, pages }) => {
           ref={bookRef}
           width={380}
           height={540}
-          showCover={True}
+          showCover={true}
           maxShadowOPacity={0.5}
           flippingTime={700}
           onFlip={(e) => setCurrent(e.data)}
