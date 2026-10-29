@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { getBookById } from "@/services/storage";
-import BookReader from "../components/BookReader/bookReader";
+import BookReader from "../components/BookReader/BookReader";
 import "./singleBook.scss";
 
 function BookContent() {

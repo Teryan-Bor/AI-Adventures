@@ -6,7 +6,7 @@ $sm-button-text: clamp(8px, 1.4vw, 24px);
 // $sm-button-animation-padding: 2px;
 
 // medium size button
-$md-button-width-clamp: clamp(60px, 11vw, 220px);
+$md-button-width-clamp: clamp(60px, 12vw, 220px);
 $md-button-text: clamp(14px, 1.7vw, 28px);
 $md-button-aspect-ratio: 2.5;
 // $md-button-animation-padding: 3px;
@@ -85,9 +85,7 @@ $lg-button-border-radius: 20px;
     }
 
   }
-
-  ;
-
+  
   &.spring {
     background-color: #a3e82c;
 

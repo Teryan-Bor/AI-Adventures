@@ -45,6 +45,8 @@ export const useFormHandle = () => {
         id: crypto.randomUUID(),
         title: generated.title,
         pages: generated.pages,
+        characterName: formData.characterName,
+        mood: formData.mood
       });
 
     } catch (err) {

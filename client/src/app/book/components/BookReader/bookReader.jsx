@@ -4,8 +4,10 @@ import { forwardRef, useRef, useState } from "react";
 
 const Page = forwardRef(({ children, number, density }, ref) => (
   <div ref={ref} className="book-page" data-density={density}>
-    <div className="book-page-content">{children}</div>
-    {number && <span className="book-page-number"> {number} </span>}
+    <div className="book-page-inner">
+      <div className="book-page-content">{children}</div>
+      {number && <span className="book-page-number">{number}</span>}
+    </div>
   </div>
 ));
 
@@ -24,7 +26,7 @@ const BookReader = ({ title, pages }) => {
       <div className="book-wrap">
         <HTMLFlipBook
           ref={bookRef}
-          width={380}
+          width={400}
           height={540}
           showCover={true}
           maxShadowOPacity={0.5}

@@ -5,7 +5,7 @@ import { StageProvider } from "./shared/StageContext/StageContext";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{backgroundColor: "black"}}>
         <StageProvider> 
           <Header />
           {children}
