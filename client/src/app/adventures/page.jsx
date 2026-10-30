@@ -5,7 +5,6 @@ import { getBooks } from "@/services/storage";
 import "./adventures.scss";
 import { BookCard } from "./components/bookCard/BookCard";
 
-
 export default function AdventuresPage() {
   const [books, setBooks] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -19,26 +18,28 @@ export default function AdventuresPage() {
 
   return (
     <main className="stories-container">
-      <div className="stories-top">
-        <div>
-          <p className="stories-eyebrow">YOUR LIBRARY</p>
-          <h1>My Adventures</h1>
-          <p>Stories saved in this browser.</p>
+      <div className="background-wrap">
+        <div className="stories-top">
+          <div>
+            <p className="stories-eyebrow">YOUR LIBRARY</p>
+            <h1>My Adventures</h1>
+            <p>Stories saved in this browser.</p>
+          </div>
+          <Link className="stories-action" href="/create">
+            + Create Adventure
+          </Link>
         </div>
-        <Link className="stories-action" href="/create">
-          + Create Adventure
-        </Link>
-      </div>
-      {!loaded && <p>Loading books...</p>}
-      {loaded && books.length === 0 && (
-        <div className="story-empty">
-          No adventures yet. Create your first story!
+        {!loaded && <p>Loading books...</p>}
+        {loaded && books.length === 0 && (
+          <div className="story-empty">
+            No adventures yet. Create your first story!
+          </div>
+        )}
+        <div className="story-grid">
+          {books.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
         </div>
-      )}
-      <div className="story-grid">
-        {books.map((book) => (
-          <BookCard key={book.id} book={book} />
-        ))}
       </div>
     </main>
   );

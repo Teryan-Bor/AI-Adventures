@@ -10,9 +10,16 @@
     height: 110vh;
     width: 100%;
     margin-top: -100px;
-    background: url("https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2024/05/2025-porsche-911-gts-coupe.jpg") no-repeat center / cover;
 
-}
+    background: url("../../../../assets/backgrounds/library-bg.jfif") no-repeat
+    center / cover;
+    
+    & > div {
+        width:100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.751);
+    }
+}   
 
 .form-section {
     display: flex;

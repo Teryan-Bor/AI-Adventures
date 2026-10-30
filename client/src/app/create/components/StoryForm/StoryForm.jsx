@@ -27,7 +27,10 @@ const StoryForm = () => {
 
 	return (
 		<div className="create-section container">
-			<div className="background-wrapper" />
+			<div className="background-wrapper">
+				<div  />
+
+			</div>
 			<form className="form-section" onSubmit={handleSubmit}>
 				<div className="step-counter">
 					Step {currentStep + 1} из {storyFields.length}
