@@ -1,10 +1,10 @@
 from pydantic import BaseModel, field_validator, model_validator
 
 class WeatherQuery(BaseModel):
-    lat: str | None = None
-    lon: str | None = None
-    city: str = "Sumgait"
-
+    lat: float | None = None
+    lon: float | None = None
+    city: str = "Yerevan"
+    
     @field_validator("lat", "lon", mode="before")
     @classmethod
     def clean_coord(cls, v):

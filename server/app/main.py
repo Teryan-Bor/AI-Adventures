@@ -6,6 +6,7 @@ from app.schemas import GeneratedStory, StoryRequest
 from app.services.gemini_service.gemini import generate_story
 from .services.weather_service.weather_service import getWeather
 from .services.weather_service.WeatherQuery import WeatherQuery
+from .services.redis_client import redis_ping
 
 
 logging.basicConfig(level=logging.INFO)
@@ -28,10 +29,15 @@ def root():
 async def get_weather(query: Annotated[WeatherQuery, Query()]):
     return await getWeather(query)
 
+@app.get("/health/redis")
+async def health_redis():
+    return {"redis": await redis_ping()}
+
 @app.post("/create", response_model=GeneratedStory)
 def create_story(payload: StoryRequest):
     story = generate_story(payload)
     return story
+
 
 
 
