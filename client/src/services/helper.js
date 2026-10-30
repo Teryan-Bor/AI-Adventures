@@ -16,22 +16,23 @@ const getPosition = async () => {
   });
 };
 
-// const readCache = () => {
-//   try {
-//     const raw = sessionStorage.getItem(KEY);
-//     if(!raw) return null;
+const readCache = () => {
+  try {
+    const raw = sessionStorage.getItem(KEY);
+    if(!raw) return null;
 
-//     const { data, ts } = JSON.parse(raw);
-//     return Date.now() - ts < TTL ? data : null;
+    const { data, ts } = JSON.parse(raw);
+    return Date.now() - ts < TTL ? data : null;
 
-//   } catch (error) {
-//     return null;
-//   }
-// }
+  } catch (error) {
+    return null;
+  }
+}
 
 export const getCoordsAndWeather = async () => {
-  // const cached = readCache();
-  // if(cached) return cached;
+  const cached = readCache();
+  if(cached) return cached;
+  
   const coords = await getPosition();
   return await fetchWeather(coords?.lat, coords?.lon);
 }
