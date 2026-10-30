@@ -23,7 +23,7 @@ const StoryForm = () => {
 	} = useFormHandle();
 
 	const { weather, status } = useWeather();
-	const season = getWeatherType(weather);
+	const weatherType = getWeatherType(weather);
 
 	return (
 		<div className="create-section container">
@@ -53,7 +53,7 @@ const StoryForm = () => {
 						<Button
 							type="button"
 							onClick={handleBack}
-							season={season}
+							weather={weatherType}
 							size="sm"
 							className="form-btn"
 						>
@@ -65,7 +65,7 @@ const StoryForm = () => {
 						<Button
 							type="button"
 							onClick={handleNext}
-							season={season}
+							weather={weatherType}
 							size="sm"
 							className="form-btn"
 							disabled={!canContinue}
@@ -78,7 +78,7 @@ const StoryForm = () => {
 						<Button
 							type="submit"
 							size="sm"
-							season={season}
+							weather={weatherType}
 							className="form-btn"
 							disabled={!canContinue}
 						>

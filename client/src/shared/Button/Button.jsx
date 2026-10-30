@@ -3,14 +3,14 @@ import "./button.scss";
 
 export const Button = (
 	{ type = "button",
-		season,
+		weather,
 		size = 'md',
 		className = "",
 		href,
 		children,
 		...rest
 	}) => {
-	const classes = ["button", size, season, className].filter(Boolean).join(" ");
+	const classes = ["button", size, weather, className].filter(Boolean).join(" ");
 
 	if (href) {
 		return (

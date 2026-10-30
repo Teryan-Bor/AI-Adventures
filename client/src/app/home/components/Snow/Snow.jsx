@@ -10,7 +10,7 @@ import { getWeatherType } from "@/services/helper";
 export const Snow = () => {
 	const [flakesArr, setFlakesArr] = useState([]);
 	const { weather, status } = useWeather();
-	const season = getWeatherType(weather);
+	const weatherType = getWeatherType(weather);
 
 	useEffect(() => {
 		/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
@@ -26,11 +26,11 @@ export const Snow = () => {
 		<div
 			className="layer_section snow"
 			style={{
-				'opacity': season === "snow" ? 1 : 0,
+				'opacity': weatherType === "snow" ? 1 : 0,
 			}}
 		>
 			{flakesArr.map(flake => (
-				<FlakeSpan key={flake.id} ownType={"snow"} item={flake} />
+				<FlakeSpan key={flake.id} weather={"snow"} item={flake} />
 			))}
 
 		</div>

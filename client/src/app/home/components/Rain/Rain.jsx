@@ -8,9 +8,9 @@ import { getWeatherType } from "@/services/helper";
 
 const Rain = () => {
 	const [rainsArr, setRains] = useState([]);
-	const { weather, status } = useWeather();
 
-	const season = getWeatherType(weather);
+	const { weather, status } = useWeather();
+	const weatherType = getWeatherType(weather);
 
 	useEffect(() => {
 		/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
@@ -26,7 +26,7 @@ const Rain = () => {
 		<div 
 			className="layer_section rain"
 			style={{
-				'opacity': season === "rain" ? 1 : 0,
+				'opacity': weatherType === "rain" ? 1 : 0,
 			}}
 		>
 			{rainsArr.map(rain => (

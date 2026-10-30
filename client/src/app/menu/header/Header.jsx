@@ -6,13 +6,12 @@ import { getWeatherType } from "@/services/helper";
 
 const Header = () => {
 	const {weather, status} = useWeather();
-
-	const season = getWeatherType(weather);
+	const weatherType = getWeatherType(weather);
 
 	return (
 		<header className="header-container">
 			<Link href="/home">
-				<h2 className={`logo_header gradient-text ${season}`}>
+				<h2 className={`logo_header gradient-text ${weatherType}`}>
 					AI Adventures
 				</h2>
 			</Link>

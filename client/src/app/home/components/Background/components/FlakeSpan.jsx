@@ -1,7 +1,7 @@
-export const FlakeSpan = ({ ownType, item }) => {
+export const FlakeSpan = ({ weather, item }) => {
   return (
     <span
-      className={`flake-wrapper ${ownType}`}
+      className={`flake-wrapper ${weather}`}
       style={{
         "--x": `${item.x}%`,
         "--size": `${item.size}px`,
@@ -11,7 +11,7 @@ export const FlakeSpan = ({ ownType, item }) => {
       }}
     >
       <span
-        className={`flake ${ownType}`}
+        className={`flake ${weather}`}
         style={{
           "--drift": `${item.drift}px`,
           "--driftDuration": `${item.driftDuration}s`,

@@ -5,12 +5,12 @@ import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const HeroSection = () => {
   const { weather, status } = useWeather();
-  const season = getWeatherType(weather);
+  const weatherType = getWeatherType(weather);
 
   return (
     <div className="hero-section">
       <h2 className="hero-title">
-        Go ahead and create <span className={`gradient-text ${season}`}>your own story</span>
+        Go ahead and create <span className={`gradient-text ${weatherType}`}>your own story</span>
       </h2>
 
       <p className="hero-text">
@@ -18,7 +18,7 @@ const HeroSection = () => {
       </p>
 
       <Button
-        season={season}
+        weather={weatherType}
         size={'lg'}
         href={'/create'}
       >
