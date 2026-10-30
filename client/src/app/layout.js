@@ -7,12 +7,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body style={{backgroundColor: "black"}}>
-        <StageProvider>
+        {/* <StageProvider> */}
           <WeatherProvider>
             <Header />
             {children}
           </WeatherProvider>
-        </StageProvider>
+        {/* </StageProvider> */}
 				
       </body>
     </html>

@@ -106,7 +106,7 @@ $lg-button-border-radius: 20px;
 
   }
 
-  &.summer {
+  &.hot {
     background-color: #e8742c;
 
     &:not(:disabled):hover {
@@ -123,7 +123,7 @@ $lg-button-border-radius: 20px;
     }
   }
 
-  &.fall {
+  &.rain {
     background-color: #c56b05;
 
     &:not(:disabled):hover {
@@ -140,7 +140,7 @@ $lg-button-border-radius: 20px;
     }
   }
 
-  &.winter {
+  &.snow {
     background-color: #8afcf6;
 
     &:not(:disabled):hover {

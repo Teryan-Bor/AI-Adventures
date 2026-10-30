@@ -4,6 +4,8 @@ import { storyFields } from "./storyFields";
 import "./StoryForm.scss";
 import { useFormHandle } from "./formHelper";
 import { Button } from "@/app/shared/Button/Button";
+import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { getWeatherType } from "@/services/helper";
 
 const StoryForm = () => {
 	const {
@@ -19,6 +21,9 @@ const StoryForm = () => {
 		handleBack,
 		handleSubmit,
 	} = useFormHandle();
+
+	const { weather, status } = useWeather();
+	const season = getWeatherType(weather);
 
 	return (
 		<div className="create-section container">
@@ -45,7 +50,7 @@ const StoryForm = () => {
 						<Button
 							type="button"
 							onClick={handleBack}
-							season={"winter"}
+							season={season}
 							size="sm"
 							className="form-btn"
 						>
@@ -57,7 +62,7 @@ const StoryForm = () => {
 						<Button
 							type="button"
 							onClick={handleNext}
-							season={"winter"}
+							season={season}
 							size="sm"
 							className="form-btn"
 							disabled={!canContinue}
@@ -70,7 +75,7 @@ const StoryForm = () => {
 						<Button
 							type="submit"
 							size="sm"
-							season={"winter"}
+							season={season}
 							className="form-btn"
 							disabled={!canContinue}
 						>

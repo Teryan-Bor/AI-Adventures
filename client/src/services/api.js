@@ -1,4 +1,4 @@
-const API_URL = process.env.API_URL || "http://127.0.0.1:8000"
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"
 
 export async function createStory(data) {
   try {
@@ -32,6 +32,8 @@ export const fetchWeather = async (lat, lon) => {
   const url = `${API_URL}/weather${query ? `?${query}` : ""}`;
 
   const response = await fetch(url);
+  console.log(response, "weather response");
+  
 
   if(!response.ok) {
     throw new Error(`Weather request failed: ${response.status}`)

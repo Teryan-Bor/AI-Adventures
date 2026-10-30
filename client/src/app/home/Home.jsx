@@ -3,30 +3,27 @@ import { useContext, useEffect, useState } from "react";
 import { Snow } from "./components/Snow/Snow";
 import Rain from "./components/Rain/Rain";
 import Hot from "./components/Hot/Hot";
-import StagesTabs from "./components/StagesTabs/StagesTabs";
+// import StagesTabs from "./components/StagesTabs/StagesTabs";
 import "./home.css";
-import { StageContext } from "../shared/StageContext/StageContext";
+// import { StageContext } from "../shared/StageContext/StageContext";
 import HeroSection from "./components/Hero/HeroSection";
 import { getCoordsAndWeather } from "@/services/helper";
+import { Background } from "./components/Background/Background";
 
 const HomePage = () => {
-  const {activeIndex } = useContext(StageContext);
+  // const {activeIndex } = useContext(StageContext);
 
   useEffect(() => {
     getCoordsAndWeather();
-  }, [])
-  
+  }, []);
+
   return (
     <div className="welcome_section container">
-      <Snow stageIndex={activeIndex} />
-      <Rain stageIndex={activeIndex} />
-      <Hot stageIndex={activeIndex} />
-      <StagesTabs stageIndex={activeIndex} /> 
-
-      <HeroSection activeIndex={activeIndex} />  
+      <Background />
+      {/* <StagesTabs /> */}
+      <HeroSection />
     </div>
-    
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

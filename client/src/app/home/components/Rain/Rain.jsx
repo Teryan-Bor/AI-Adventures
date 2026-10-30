@@ -2,40 +2,31 @@
 import { useEffect, useState } from "react";
 import random from "../../utils/random";
 import "./rain.css";
+import { generateParticles } from "../../utils/generateParticles";
+import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { getWeatherType } from "@/services/helper";
 
-const Rain = ({stageIndex}) => {
+const Rain = () => {
 	const [rainsArr, setRains] = useState([]);
+	const { weather, status } = useWeather();
+
+	const season = getWeatherType(weather);
 
 	useEffect(() => {
-		const arr = [];
-		for (let i = 0; i < 150; i++) {
-			const size = random(12, 25);
-			const t = (size - 12) / (25 - 12);
-			let duration = 1 - t * (1 - 0.5);
-			duration = Math.round(duration * 10) / 10;
-
-			const opacity = 0.3 + t * 0.6;
-
-			arr.push({
-				id: i,
-				x: random(0, 97),
-				size,
-				duration,
-				delay: random(-20, 0),
-				opacity,
-
-			});
-		}
-
-		setRains(arr);
+		/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+		setRains(generateParticles({
+			count: 150,
+			size: [12, 25],
+			duration: [0.5, 1]
+		}))
+		 /* eslint-enable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
 	}, [])
 
 	return (
 		<div 
 			className="layer_section rain"
 			style={{
-				'opacity': stageIndex === 1 ? 1 : 0,
-				'transition': 'opacity 0.2s ease-in-out'
+				'opacity': season === "rain" ? 1 : 0,
 			}}
 		>
 			{rainsArr.map(rain => (

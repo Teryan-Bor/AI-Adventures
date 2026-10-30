@@ -1,69 +1,38 @@
 'use client';
 import { useEffect, useMemo, useState } from "react";
-// import "@/home/components/Snow/snow.css";
+import "./snow.css";
 import "@/app/home/components/Snow/snow.css";
-import random from "../../utils/random";
+import { FlakeSpan } from "../Default/components/FlakeSpan";
+import { generateParticles } from "../../utils/generateParticles";
+import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { getWeatherType } from "@/services/helper";
 
-export const Snow = ({ stageIndex }) => {
+export const Snow = () => {
 	const [flakesArr, setFlakesArr] = useState([]);
+	const { weather, status } = useWeather();
+	const season = getWeatherType(weather);
 
 	useEffect(() => {
-		const arr = [];
-
-		for (let i = 0; i < 80; i++) {
-			const size = random(2, 6);
-			const t = (size - 2) / (6 - 2);
-
-			let duration = 20 - t * (20 - 8);
-			duration = Math.round(duration * 10) / 10;
-
-			const opacity = 0.3 + t * 0.6;
-
-			arr.push({
-				id: i,
-				x: random(0, 97),
-				duration,
-				size,
-				delay: random(-20, 0),
-				drift: random(10, 40),
-				driftDuration: random(3, 8),
-				opacity,
-			});
-		}
-
-		setFlakesArr(arr);
+		/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+		setFlakesArr(generateParticles({
+			count: 80,
+			size: [2, 6],
+			drift: [10, 40]
+		}))
+		 /* eslint-enable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
 	}, []);
 
 	return (
 		<div
 			className="layer_section snow"
 			style={{
-				'opacity': stageIndex === 0 ? 1 : 0,
-				'transition': 'opacity 0.2s ease-in-out'
+				'opacity': season === "snow" ? 1 : 0,
 			}}
 		>
 			{flakesArr.map(flake => (
-				<span
-					key={flake.id}
-					className="flake-wrapper"
-					style={{
-						'--x': `${flake.x}%`,
-						'--size': `${flake.size}px`,
-						'--duration': `${flake.duration}s`,
-						'--delay': `${flake.delay}s`,
-						'--opacity': `${flake.opacity}`
-					}}
-				>
-					<span
-						className="flake snow"
-						style={{
-							'--drift': `${flake.drift}px`,
-							'--driftDuration': `${flake.driftDuration}s`
-						}}
-
-					/>
-				</span>
+				<FlakeSpan key={flake.id} ownType={"snow"} item={flake} />
 			))}
+
 		</div>
 	)
 }

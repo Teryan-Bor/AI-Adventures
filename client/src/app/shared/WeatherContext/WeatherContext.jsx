@@ -1,7 +1,12 @@
-import { getCoordsAndWeather } from "@/services/helper";
+"use client";
+import { getCoordsAndWeather, getWeatherType } from "@/services/helper";
 import { createContext, useContext, useEffect, useState } from "react";
 
-export const WeatherContext = createContext({weather: null, status: "loading"});
+export const WeatherContext = createContext({
+  weather: null,
+  status: "loading",
+  type:"default"
+});
 
 export function WeatherProvider({children}) {
   const [state, setState] = useState({weather: null, status: "loading"});
@@ -20,7 +25,9 @@ export function WeatherProvider({children}) {
     return () => { cancelled = true; };
   }, []);
 
-  return <WeatherContext value={state}> {children} </WeatherContext>
+  const value = {...state, type: getWeatherType(state.weather) }
+
+  return <WeatherContext value={value}> {children} </WeatherContext>
 }
 
 export const useWeather = () => useContext(WeatherContext);

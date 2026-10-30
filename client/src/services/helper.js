@@ -18,10 +18,12 @@ const getPosition = async () => {
 
 const readCache = () => {
   try {
-    const raw = sessionStorage.getItem(KEY)
+    const raw = sessionStorage.getItem(KEY);
     if(!raw) return null;
+
     const { data, ts } = JSON.parse(raw);
     return Date.now() - ts < TTL ? data : null;
+
   } catch (error) {
     return null;
   }
@@ -30,7 +32,21 @@ const readCache = () => {
 export const getCoordsAndWeather = async () => {
   const cached = readCache();
   if(cached) return cached;
-  
+
   const coords = await getPosition();
   return await fetchWeather(coords?.lat, coords?.lon);
+}
+
+export const getWeatherType = (data) => {
+  const main = data?.weather[0]?.main;
+  const temp = data?.main?.temp;
+
+  const RAIN_GROUPS = ["Rain", "Drizzle", "Thunderstorm"];  
+  const HOT_TEMP = 25;
+
+  if(main === "snow") return "snow";
+  if(RAIN_GROUPS.includes(main)) return "rain";
+  if(temp !== null && temp >= HOT_TEMP) return "hot";
+
+  return "snow";
 }

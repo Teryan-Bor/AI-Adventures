@@ -4,14 +4,19 @@ import "./header.scss";
 import { useContext } from "react";
 import { StageContext } from "@/app/shared/StageContext/StageContext";
 import { seasons } from "@/app/shared/seasons";
+import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { getWeatherType } from "@/services/helper";
 
 const Header = () => {
 	const { activeIndex } = useContext(StageContext);
+	const {weather, status} = useWeather();
+
+	const season = getWeatherType(weather);
 
 	return (
 		<header className="header-container">
 			<Link href="/home">
-				<h2 className={`logo_header gradient-text ${seasons[activeIndex]}`}>
+				<h2 className={`logo_header gradient-text ${season}`}>
 					AI Adventures
 				</h2>
 			</Link>
