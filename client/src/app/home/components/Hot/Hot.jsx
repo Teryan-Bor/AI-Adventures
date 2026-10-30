@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import random from "../../utils/random";
 import "./hot.css";
 import { generateParticles } from "../../utils/generateParticles";
-import { FlakeSpan } from "../Default/components/FlakeSpan";
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { FlakeSpan } from "../Background/components/FlakeSpan";
 import { getWeatherType } from "@/services/helper";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const Hot = () => {
 	const [hotArr, setHot] = useState([]);

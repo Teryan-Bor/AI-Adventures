@@ -1,8 +1,7 @@
 import "./hero.scss";
-import { Button } from "@/app/shared/Button/Button"
-import { seasons } from "@/app/shared/seasons";
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
+import { Button } from "@/shared/Button/Button";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const HeroSection = () => {
   const { weather, status } = useWeather();

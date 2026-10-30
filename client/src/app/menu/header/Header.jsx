@@ -1,14 +1,10 @@
 "use client";
 import Link from "next/link";
 import "./header.scss";
-import { useContext } from "react";
-import { StageContext } from "@/app/shared/StageContext/StageContext";
-import { seasons } from "@/app/shared/seasons";
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
 const Header = () => {
-	const { activeIndex } = useContext(StageContext);
 	const {weather, status} = useWeather();
 
 	const season = getWeatherType(weather);
@@ -27,7 +23,11 @@ const Header = () => {
 						<Link href={"/home"}>Home</Link>
 					</li>
 
-					<li className="menu_link"><a href="#">About us</a></li>
+					<li className="menu_link">
+						<Link href={"/about"}>
+							About Us
+						</Link>
+					</li>
 					
 					<li className="menu_link">
 						<Link href={"/adventures"}>Adventures</Link>

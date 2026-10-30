@@ -1,4 +1,4 @@
-import { genres, worlds, moods } from "../../shared/options";
+import { genres, worlds, moods } from "../../options";
 
 export const storyFields = [
   {

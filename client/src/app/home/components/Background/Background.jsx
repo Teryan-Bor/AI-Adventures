@@ -1,4 +1,4 @@
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import Hot from "../Hot/Hot"
 import Rain from "../Rain/Rain"
 import { Snow } from "../Snow/Snow"

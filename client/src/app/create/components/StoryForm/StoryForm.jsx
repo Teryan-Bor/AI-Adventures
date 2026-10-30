@@ -1,11 +1,11 @@
 "use client";
-import { FieldSection } from "@/app/shared/FieldSection/FieldSection";
 import { storyFields } from "./storyFields";
 import "./StoryForm.scss";
 import { useFormHandle } from "./formHelper";
-import { Button } from "@/app/shared/Button/Button";
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
+import { Button } from "@/shared/Button/Button";
+import { FieldSection } from "@/shared/FieldSection/FieldSection";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const StoryForm = () => {
 	const {

@@ -2,9 +2,9 @@
 import { useEffect, useMemo, useState } from "react";
 import "./snow.css";
 import "@/app/home/components/Snow/snow.css";
-import { FlakeSpan } from "../Default/components/FlakeSpan";
+import { FlakeSpan } from "../Background/components/FlakeSpan";
 import { generateParticles } from "../../utils/generateParticles";
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
 export const Snow = () => {

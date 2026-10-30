@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import random from "../../utils/random";
 import "./rain.css";
 import { generateParticles } from "../../utils/generateParticles";
-import { useWeather } from "@/app/shared/WeatherContext/WeatherContext";
+import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
 const Rain = () => {
