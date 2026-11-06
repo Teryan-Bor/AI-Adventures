@@ -1,0 +1,94 @@
+$cloud-color: rgb(255, 255, 255);
+
+.cloud {
+  position: absolute;
+  left: 0;
+  background-color: $cloud-color;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Far cloud: slow, small, blurry */
+#cloud3 {
+  width: 140px;
+  height: 80px;
+  top: 8%;
+  filter: blur(4px);
+  --max-opacity: 0.35;
+
+  animation:
+    drift 80s linear -15s infinite,
+    bob 9s ease-in-out infinite;
+
+  box-shadow:
+    -45px -30px 0 0 $cloud-color,
+     65px -30px 0 0 $cloud-color,
+    -100px 5px 0 0 $cloud-color,
+     110px 5px 0 0 $cloud-color;
+}
+
+/* Mid cloud */
+#cloud2 {
+  width: 150px;
+  height: 60px;
+  top: 20%;
+  filter: blur(3px);
+  --max-opacity: 0.5;
+
+  animation:
+    drift 65s linear 10s infinite,
+    bob 7s ease-in-out -2s infinite;
+
+  box-shadow:
+    -100px 3px 3px 0 $cloud-color,
+     110px 0 3px 0 $cloud-color,
+    -65px 30px 3px 0 $cloud-color,
+     70px 40px 3px 0 $cloud-color;
+}
+
+/* Near cloud: biggest, fastest, brightest  */
+#cloud1 {
+  width: 250px;
+  height: 80px;
+  top: 32%;
+  filter: blur(2px);
+  --max-opacity: 0.7;
+
+  animation:
+    drift 55s linear 35s infinite,
+    bob 6s ease-in-out -4s infinite;
+
+  box-shadow:
+    -200px 0 3px 0 $cloud-color,
+     200px 0 3px 0 $cloud-color,
+    -100px 60px 3px 0 $cloud-color,
+     100px 50px 3px 0 $cloud-color,
+     -75px -50px 3px 0 $cloud-color,
+     105px -60px 3px 0 $cloud-color;
+}
+
+
+@keyframes drift {
+  0% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--max-opacity);
+  }
+  90% {
+    opacity: var(--max-opacity);
+  }
+  100% {
+    transform: translateX(calc(100vw + 500px));
+    opacity: 0;
+  }
+}
+
+/* Gentle floating up and down (uses the separate `translate` property) */
+@keyframes bob {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -14px; }
+}

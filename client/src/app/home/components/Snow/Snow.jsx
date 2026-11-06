@@ -7,7 +7,7 @@ import { generateParticles } from "../../utils/generateParticles";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
-export const Snow = () => {
+const Snow = () => {
 	const [flakesArr, setFlakesArr] = useState([]);
 	const { weather, status } = useWeather();
 	const weatherType = getWeatherType(weather);
@@ -36,3 +36,5 @@ export const Snow = () => {
 		</div>
 	)
 }
+
+export default Snow

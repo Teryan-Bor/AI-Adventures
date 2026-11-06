@@ -14,7 +14,6 @@ $md-button-aspect-ratio: 2.5;
 // large size button
 $lg-button-border-radius: 20px;
 
-
 .button {
   position: relative;
   height: auto;
@@ -40,16 +39,12 @@ $lg-button-border-radius: 20px;
     border-radius: $sm-button-border-radius;
   }
 
-  ;
-
   &.md {
     letter-spacing: 2px;
     width: $md-button-width-clamp;
     aspect-ratio: $md-button-aspect-ratio;
     font-size: $md-button-text;
   }
-
-  ;
 
   &.lg {
     width: 80%;
@@ -59,10 +54,10 @@ $lg-button-border-radius: 20px;
 
   &:not(:disabled):hover {
     border: transparent;
-    background: transparent !important;
+    background: transparent;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
 
@@ -83,9 +78,8 @@ $lg-button-border-radius: 20px;
       mask-composite: exclude;
       animation: border-animation 2s ease-in infinite;
     }
-
   }
-  
+
   &.spring {
     background-color: #a3e82c;
 
@@ -93,17 +87,18 @@ $lg-button-border-radius: 20px;
       color: #b1e851;
 
       &::before {
-        background: conic-gradient(from var(--angle),
-            #287a05,
-            #54d21e,
-            #86ef59,
-            #efef1a,
-            #bdd80c,
-            #54d21e,
-            #368d10);
+        background: conic-gradient(
+          from var(--angle),
+          #287a05,
+          #54d21e,
+          #86ef59,
+          #efef1a,
+          #bdd80c,
+          #54d21e,
+          #368d10
+        );
       }
     }
-
   }
 
   &.hot {
@@ -113,29 +108,33 @@ $lg-button-border-radius: 20px;
       color: #eb3a57;
 
       &::before {
-        background: conic-gradient(from var(--angle),
-            #ff5e7a,
-            #f48a11,
-            #f0a606,
-            #f0a606,
-            #ff5e7a);
+        background: conic-gradient(
+          from var(--angle),
+          #ff5e7a,
+          #f48a11,
+          #f0a606,
+          #f0a606,
+          #ff5e7a
+        );
       }
     }
   }
 
   &.rain {
-    background-color: #c56b05;
+    background-color: #3a4a63;
 
     &:not(:disabled):hover {
-      color: #c58205;
+      color: #a9bdd9;
 
       &::before {
-        background: conic-gradient(from var(--angle),
-            #973602,
-            #c57505,
-            #f09606,
-            #c57505,
-            #973602);
+        background: conic-gradient(
+          from var(--angle),
+          #151c2b,
+          #2b3a67,
+          #5f7aa8,
+          #2b3a67,
+          #151c2b
+        );
       }
     }
   }
@@ -147,19 +146,39 @@ $lg-button-border-radius: 20px;
       color: #8afcf6;
 
       &::before {
-        background: conic-gradient(from var(--angle),
-            #8afcf6,
-            #0f8bc1,
-            #0566ab,
-            #8afcf6,
-          );
+        background: conic-gradient(
+          from var(--angle),
+          #8afcf6,
+          #0f8bc1,
+          #0566ab,
+          #8afcf6
+        );
+      }
+    }
+  }
+
+  &.clouds {
+    background-color: #9aa5b1;
+
+    &:not(:disabled):hover {
+      color: #e4e9ee;
+
+      &::before {
+        background: conic-gradient(
+          from var(--angle),
+          #5f6b78,
+          #8d99a6,
+          #d3dae1,
+          #8d99a6,
+          #5f6b78
+        );
       }
     }
   }
 }
 
 @property --angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }

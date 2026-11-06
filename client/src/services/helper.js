@@ -45,6 +45,7 @@ export const getWeatherType = (data) => {
   const HOT_TEMP = 25;
 
   if(main === "snow") return "snow";
+  if(main === "Clouds") return "clouds";
   if(RAIN_GROUPS.includes(main)) return "rain";
   if(temp !== null && temp >= HOT_TEMP) return "hot";
 

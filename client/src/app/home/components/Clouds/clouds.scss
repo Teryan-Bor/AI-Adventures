@@ -1,0 +1,17 @@
+.layer_section.clouds {
+  background-image: url("https://geographypin.com/wp-content/uploads/2023/04/Yerevan-armenia-2-2048x1365.jpg");
+}
+
+.clouds-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 20, 50, 0.35), rgba(0, 0, 0, 0.1));
+    pointer-events: none;
+  }
+}
