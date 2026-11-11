@@ -10,7 +10,7 @@ const Clouds = () => {
         <Cloud idName={"cloud3"} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Clouds
+export default Clouds;

@@ -16,6 +16,14 @@
 	margin-top: -100px;
 	
 	transition: opacity 0.2s linear;
+
+	&::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.295);
+  }
 }
 
 .flake-wrapper {
