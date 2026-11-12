@@ -1,9 +1,9 @@
 import "./clouds.scss";
 import { Cloud } from "./components/Cloud";
 
-const Clouds = () => {
+const Clouds = ({ style, className = "" }) => {
   return (
-    <div className="layer_section clouds">
+    <div className={`layer_section clouds ${className}`} style={{ ...style }}>
       <div className="clouds-wrap">
         <Cloud idName={"cloud1"} />
         <Cloud idName={"cloud2"} />

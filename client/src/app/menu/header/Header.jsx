@@ -5,7 +5,7 @@ import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
 const Header = () => {
-	const {weather, status} = useWeather();
+	const {weather} = useWeather();
 	const weatherType = getWeatherType(weather);
 
 	return (

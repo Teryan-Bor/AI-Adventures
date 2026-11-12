@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useEffect, useMemo, useState } from "react";
 import "./snow.css";
 import "@/app/home/components/Snow/snow.css";
@@ -7,34 +7,33 @@ import { generateParticles } from "../../utils/generateParticles";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
-const Snow = () => {
-	const [flakesArr, setFlakesArr] = useState([]);
-	const { weather, status } = useWeather();
-	const weatherType = getWeatherType(weather);
+const Snow = ({ style, className = "" }) => {
+  const [flakesArr, setFlakesArr] = useState([]);
 
-	useEffect(() => {
-		/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
-		setFlakesArr(generateParticles({
-			count: 80,
-			size: [2, 6],
-			drift: [10, 40]
-		}))
-		 /* eslint-enable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
-	}, []);
+  useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+    setFlakesArr(
+      generateParticles({
+        count: 80,
+        size: [2, 6],
+        drift: [10, 40],
+      }),
+    );
+    /* eslint-enable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+  }, []);
 
-	return (
-		<div
-			className="layer_section snow"
-			style={{
-				'opacity': weatherType === "snow" ? 1 : 0,
-			}}
-		>
-			{flakesArr.map(flake => (
-				<FlakeSpan key={flake.id} weather={"snow"} item={flake} />
-			))}
+  return (
+    <div
+      className={`layer_section snow ${className}`}
+      style={{
+        ...style,
+      }}
+    >
+      {flakesArr.map((flake) => (
+        <FlakeSpan key={flake.id} weather={"snow"} item={flake} />
+      ))}
+    </div>
+  );
+};
 
-		</div>
-	)
-}
-
-export default Snow
+export default Snow;

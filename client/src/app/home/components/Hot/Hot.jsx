@@ -6,30 +6,29 @@ import { FlakeSpan } from "../Background/components/FlakeSpan";
 import { getWeatherType } from "@/services/helper";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
-const Hot = () => {
-	const [hotArr, setHot] = useState([]);
+const Hot = ({ style, className = "" }) => {
+  const [hotArr, setHot] = useState([]);
 
-	const { weather, status } = useWeather();
-	const weatherType = getWeatherType(weather);
+  const { weather, status } = useWeather();
 
-	useEffect(() => {
-		/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
-		setHot(generateParticles());
-		 /* eslint-enable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
-	}, [])
+  useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+    setHot(generateParticles());
+    /* eslint-enable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+  }, []);
 
-	return (
-		<div
-			className="layer_section hot"
-			style={{
-				'opacity': weatherType === "hot" ? '1' : '0',
-			}}
-		>
-			{hotArr.map(item => (
-				<FlakeSpan key={item.id} weather={"hot"} item={item} />
-			))}
-		</div>
-	)
-}
+  return (
+    <div
+      className={`layer_section hot ${className}`}
+      style={{
+        ...style,
+      }}
+    >
+      {hotArr.map((item) => (
+        <FlakeSpan key={item.id} weather={"hot"} item={item} />
+      ))}
+    </div>
+  );
+};
 
-export default Hot
+export default Hot;
