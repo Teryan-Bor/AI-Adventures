@@ -19,7 +19,7 @@ const Hot = ({ style, className = "" }) => {
 
   return (
     <div
-      className={`layer_section hot ${className}`}
+      className={`layer_section ${className}`}
       style={{
         ...style,
       }}

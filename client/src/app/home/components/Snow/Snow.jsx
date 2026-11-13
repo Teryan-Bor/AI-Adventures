@@ -24,7 +24,7 @@ const Snow = ({ style, className = "" }) => {
 
   return (
     <div
-      className={`layer_section snow ${className}`}
+      className={`layer_section ${className}`}
       style={{
         ...style,
       }}
