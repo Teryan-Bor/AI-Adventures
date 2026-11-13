@@ -27,10 +27,8 @@ export function Background() {
   const weatherType = isReady ? getWeatherType(weather) : "default";
 
   const country = getCountry(weather);
-  console.log(country, "-> country");
-  
+
   const backgroundUrl = getBackgroundUrl(country, weatherType);
-  console.log(backgroundUrl, "backgroundUrl");
 
   const Component = COMPONENTS[weatherType] ?? DefaultBackground;
 

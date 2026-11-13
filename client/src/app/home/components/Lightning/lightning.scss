@@ -1,0 +1,45 @@
+.strike-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  will-change: clip-path, opacity;
+  
+  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 15px #60a5fa)
+    drop-shadow(0 0 45px #2563eb);
+  animation: strike-reveal 0.45s ease-out forwards;
+
+}
+
+/* Individual bolt channels (main trunk + branches) */
+.bolt {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+}
+
+@keyframes strike-reveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 1;
+  }
+  12% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 1;
+  } /* Reaches ground */
+  18% {
+    opacity: 0.2;
+  }
+  24% {
+    opacity: 1;
+  } /* Return stroke flash */
+  40% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 0;
+  }
+}
