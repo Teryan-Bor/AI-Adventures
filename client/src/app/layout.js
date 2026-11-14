@@ -1,4 +1,4 @@
-import "./global.css";
+import "./global.scss";
 
 import { WeatherProvider } from "@/shared/WeatherContext/WeatherContext";
 import Header from "./menu/header/Header";

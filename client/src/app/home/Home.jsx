@@ -1,6 +1,6 @@
 "use client";
 import {  useEffect } from "react";
-import "./home.css";
+import "./home.scss";
 import HeroSection from "./components/Hero/HeroSection";
 import { Background } from "./components/Background/Background";
 
