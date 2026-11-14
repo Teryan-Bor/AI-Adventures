@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { fetchWeather } from "./api";
 
 const TTL = 10 * 60 * 1000;
@@ -52,7 +53,8 @@ export const getWeatherType = (data) => {
     clouds: "clouds",
     thunderstorm: "thunder",
     rain: "rain",
-    drizzle: "rain"
+    drizzle: "rain",
+    mist: "default"
   }
 
   if (temp !== undefined && temp >= HOT_TEMP) { 
@@ -68,3 +70,19 @@ export const getCountry = (data) => {
 
 export const getBackgroundUrl = (country, weatherType) =>
   `${BASE}/${country}/${weatherType}.jpg`;
+
+export const useBackground = (country, weatherType) => {
+  const [bgUrl, setBgUrl] = useState(null);
+
+  useEffect(() => {
+    const url = getBackgroundUrl(country, weatherType);
+    const DEFAULT_BG = getBackgroundUrl("default", weatherType);
+
+    const img = new Image();
+    img.onload = () => setBgUrl(url);
+    img.onerror = () => setBgUrl(DEFAULT_BG);
+    img.src = url;
+  }, [country, weatherType]);
+
+  return bgUrl;
+}

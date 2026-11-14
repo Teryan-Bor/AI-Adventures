@@ -8,9 +8,8 @@ import Lightning from "../Lightning/Lightning";
 import DefaultBackground from "../Default/DefaultBackground";
 
 import {
-  getBackgroundUrl,
   getCountry,
-  getWeatherType,
+  useBackground,
 } from "@/services/helper";
 
 const COMPONENTS = {
@@ -30,13 +29,13 @@ export function Background() {
 
   const country = getCountry(weather);
 
-  const backgroundUrl = getBackgroundUrl(country, weatherType);
+  const bgUrl = useBackground(country, type);
 
   const Component = COMPONENTS[weatherType] ?? DefaultBackground;
 
   return (
     <Component
-      style={{ '--bg-url': `url(${backgroundUrl})` }}
+      style={{ '--bg-url': bgUrl ? `url(${bgUrl})` : 'linear-gradient(#1a1a2e, #16213e)' }}
       className={`bg-[image:var(--bg-url)]`}
     />
   );
