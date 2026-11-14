@@ -43,23 +43,28 @@ export const getCoordsAndWeather = async () => {
 export const getWeatherType = (data) => {
   if (!data) return "default";
 
-  const main = data?.weather[0]?.main;
+  const main = data?.weather[0]?.main?.toLowerCase();
   const temp = data?.main?.temp;
 
-  const RAIN_GROUPS = ["Rain", "Drizzle", "Thunderstorm"];
   const HOT_TEMP = 25;
+  const weatherMap = {
+    snow: "snow",
+    clouds: "clouds",
+    thunderstorm: "thunder",
+    rain: "rain",
+    drizzle: "rain"
+  }
 
-  if (main === "snow") return "snow";
-  if (main === "Clouds") return "clouds";
-  if (RAIN_GROUPS.includes(main)) return "rain";
-  if (temp !== null && temp >= HOT_TEMP) return "hot";
-
-  return "snow";
+  if (temp !== undefined && temp >= HOT_TEMP) { 
+    return "hot"
+  } 
+  
+  return weatherMap[main] ?? "default";
 };
 
 export const getCountry = (data) => {
   return data?.sys?.country?.toLowerCase() || "default";
 };
 
-export const getBackgroundUrl = (country, weatherType) => 
+export const getBackgroundUrl = (country, weatherType) =>
   `${BASE}/${country}/${weatherType}.jpg`;
