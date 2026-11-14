@@ -2,7 +2,6 @@
 import Link from "next/link";
 import "./header.scss";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
-import { getWeatherType } from "@/services/helper";
 
 const Header = () => {
   const { type } = useWeather();

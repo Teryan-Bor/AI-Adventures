@@ -1,1 +1,0 @@
-export const seasons = ["snow", "fall", "summer"];

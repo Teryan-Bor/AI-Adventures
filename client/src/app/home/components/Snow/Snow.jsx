@@ -4,8 +4,6 @@ import "./snow.css";
 import "@/app/home/components/Snow/snow.css";
 import { FlakeSpan } from "../Background/components/FlakeSpan";
 import { generateParticles } from "../../utils/generateParticles";
-import { useWeather } from "@/shared/WeatherContext/WeatherContext";
-import { getWeatherType } from "@/services/helper";
 
 const Snow = ({ style, className = "" }) => {
   const [flakesArr, setFlakesArr] = useState([]);

@@ -4,12 +4,9 @@ import random from "../../utils/random";
 import "./rain.css";
 import { generateParticles } from "../../utils/generateParticles";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
-import { getWeatherType } from "@/services/helper";
 
 const Rain = ({ style, className = "" }) => {
   const [rainsArr, setRains] = useState([]);
-
-  const { weather, status } = useWeather();
 
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */

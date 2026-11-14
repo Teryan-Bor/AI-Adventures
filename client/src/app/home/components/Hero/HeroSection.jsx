@@ -1,5 +1,4 @@
 import "./hero.scss";
-import { getWeatherType } from "@/services/helper";
 import { Button } from "@/shared/Button/Button";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
@@ -16,7 +15,7 @@ const HeroSection = () => {
       </p>
 
       <Button
-        weather={weatherType}
+        weather={type}
         size={'lg'}
         href={'/create'}
       >

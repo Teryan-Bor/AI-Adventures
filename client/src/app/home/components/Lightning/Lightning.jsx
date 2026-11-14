@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { generateLightningStrike } from "./boltGenerate";
 
-import styles from "./lightning.scss";
+import "./lightning.scss";
 
 const Lightning = ({ style, className = "", intervalMs = 3000 }) => {
   const [strike, setStrike] = useState(null);
@@ -25,11 +25,11 @@ const Lightning = ({ style, className = "", intervalMs = 3000 }) => {
   return (
     <div className={`layer_section ${className}`} style={{ ...style }}>
       {/* key={strike.id} заставляет React пересоздавать обёртку и перезапускать CSS-анимацию с 0% */}
-      <div key={strike.id} className={styles.strikeWrapper}>
+      <div key={strike.id} className="strikeWrapper">
         {strike.bolts.map((bolt) => (
           <div
             key={bolt.id}
-            className={styles.bolt}
+            className="bolt"
             style={{
               clipPath: bolt.clipPath,
               opacity: bolt.opacity,

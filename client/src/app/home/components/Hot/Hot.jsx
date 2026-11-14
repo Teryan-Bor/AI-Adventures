@@ -3,7 +3,6 @@ import random from "../../utils/random";
 import "./hot.css";
 import { generateParticles } from "../../utils/generateParticles";
 import { FlakeSpan } from "../Background/components/FlakeSpan";
-import { getWeatherType } from "@/services/helper";
 import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const Hot = ({ style, className = "" }) => {
