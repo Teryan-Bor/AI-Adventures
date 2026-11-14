@@ -81,10 +81,10 @@ $lg-button-border-radius: 20px;
   }
 
   &.default {
-    background-color: #a3e82c;
+    background-color: #909090;
 
     &:not(:disabled):hover {
-      color: #b1e851;
+      color: #ffffff;
 
       &::before {
         background: conic-gradient(

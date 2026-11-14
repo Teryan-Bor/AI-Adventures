@@ -3,110 +3,118 @@
 @tailwind utilities;
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-	--padding-inline: clamp(15px, 6vw, 150px);
-	--text-font-clamp: clamp(8px, 1.4vw, 24px);
-	--default-text-color: white;
+  --padding-inline: clamp(15px, 6vw, 150px);
+  --text-font-clamp: clamp(8px, 1.4vw, 24px);
+  --default-text-color: white;
 }
 
 @font-face {
-	font-display: swap;
-	font-family: "Montserrat";
-	font-style: normal;
-	font-weight: 400;
-	src: url("../assets/fonts/montserrat/montserrat-v31-latin-regular.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "Montserrat";
-	font-style: normal;
-	font-weight: 900;
-	src: url("../assets/fonts/montserrat/montserrat-v31-latin-900.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "Montserrat";
-	font-style: normal;
-	font-weight: 500;
-	src: url("../assets/fonts/montserrat/montserrat-v31-latin-500.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: 400;
-	src: url("../assets/fonts/roboto/roboto-v51-latin-regular.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: 500;
-	src: url("../assets/fonts/roboto/roboto-v51-latin-500.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: 900;
-	src: url("../assets/fonts/roboto/roboto-v51-latin-900.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap; 
-  font-family: 'Plus Jakarta Sans';
+  font-display: swap;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
-  src: url('../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-regular.woff2') format('woff2'); 
+  src: url("../assets/fonts/montserrat/montserrat-v31-latin-regular.woff2")
+    format("woff2");
 }
 
 @font-face {
-  font-display: swap; 
-  font-family: 'Plus Jakarta Sans';
+  font-display: swap;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/montserrat/montserrat-v31-latin-900.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/montserrat/montserrat-v31-latin-500.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/roboto/roboto-v51-latin-regular.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/roboto/roboto-v51-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/roboto/roboto-v51-latin-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-regular.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 700;
-  src: url('../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-700.woff2') format('woff2'); 
+  src: url("../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-700.woff2")
+    format("woff2");
 }
 
 @font-face {
-  font-display: swap; 
-  font-family: 'Plus Jakarta Sans';
+  font-display: swap;
+  font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 800;
-  src: url('../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-800.woff2') format('woff2'); 
+  src: url("../assets/fonts/plus-jakarta-sans/plus-jakarta-sans-v12-latin-800.woff2")
+    format("woff2");
 }
 
 body {
-	position: relative;
-	min-height: 100vh;
-	color: var(--default-text-color);
+  position: relative;
+  min-height: 100vh;
+  color: var(--default-text-color);
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
-input, button {
-	outline: none;
-	border: none;
+input,
+button {
+  outline: none;
+  border: none;
 }
 
 ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 .container {
-	padding: 20px var(--padding-inline);
+  padding: 20px var(--padding-inline);
 }
 
 .gradient-text {
@@ -120,20 +128,20 @@ ul {
 
   &.default {
     background-image: linear-gradient(
-      310deg,
+      120deg,
       #484848 0%,
-      #858585 8%,
-      #d2d2d2 15%,
-      #dfdfdf 23%,
-      #d2d2d2 30%,
-      #858585 40%,
-      #484848 51%,
-      #858585 60%,
-      #d2d2d2 70%,
-      #dfdfdf 78%,
-      #d2d2d2 85%,
-      #858585 91%,
-      #484848 98%
+      #7a7a7a 8%,
+      #969696 17%,
+      #c1c1c1 25%,
+      #969696 34%,
+      #7a7a7a 42%,
+      #484848 50%,
+      #7a7a7a 58%,
+      #969696 66%,
+      #c1c1c1 73%,
+      #969696 80%,
+      #7a7a7a 87%,
+      #484848 97%
     );
   }
 
@@ -179,16 +187,23 @@ ul {
     );
   }
 
-  &.rain, &.thunder {
+  &.rain,
+  &.thunder {
     background-image: linear-gradient(
       120deg,
       #151c2b 0%,
-      #2b3a67 10%,
+      #2b3a67 8.3%,
+      #455fac 16.6%,
       #5f7aa8 25%,
-      #151c2b 40%,
-      #2b3a67 60%,
-      #5f7aa8 80%,
-      #151c2b 95%
+      #455fac 33.3%,
+      #2b3a67 41.6%,
+      #151c2b 50%,
+      #2b3a67 58.3%,
+      #455fac 66.6%,
+      #5f7aa8 75%,
+      #455fac 83.3%,
+      #2b3a67 91.6%,
+      #151c2b 100%
     );
   }
 
@@ -213,10 +228,20 @@ ul {
       #d3dae1 25%,
       #8d99a6 38%,
       #5f6b78 50%,
-			#8d99a6 62%,
+      #8d99a6 62%,
       #d3dae1 75%,
       #8d99a6 88%,
       #5f6b78 100%
     );
+  }
+}
+
+@keyframes gradient-animation {
+  from {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0% 50%;
   }
 }
