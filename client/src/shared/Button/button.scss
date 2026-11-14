@@ -80,7 +80,28 @@ $lg-button-border-radius: 20px;
     }
   }
 
-  &.spring {
+  &.default {
+    background-color: #a3e82c;
+
+    &:not(:disabled):hover {
+      color: #b1e851;
+
+      &::before {
+        background: conic-gradient(
+          from var(--angle),
+          #484848,
+          #858585,
+          #d2d2d2,
+          #dfdfdf,
+          #d2d2d2,
+          #858585,
+          #484848
+        );
+      }
+    }
+  }
+
+  &.clear {
     background-color: #a3e82c;
 
     &:not(:disabled):hover {
@@ -120,7 +141,7 @@ $lg-button-border-radius: 20px;
     }
   }
 
-  &.rain {
+  &.rain, &.thunder {
     background-color: #3a4a63;
 
     &:not(:disabled):hover {
