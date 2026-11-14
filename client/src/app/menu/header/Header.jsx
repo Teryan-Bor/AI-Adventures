@@ -5,37 +5,31 @@ import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 import { getWeatherType } from "@/services/helper";
 
 const Header = () => {
-	const {weather} = useWeather();
-	const weatherType = getWeatherType(weather);
+  const { type } = useWeather();
 
-	return (
-		<header className="header-container">
-			<Link href="/home">
-				<h2 className={`logo_header gradient-text ${weatherType}`}>
-					AI Adventures
-				</h2>
-			</Link>
+  return (
+    <header className="header-container">
+      <Link href="/home">
+        <h2 className={`logo_header gradient-text ${type}`}>AI Adventures</h2>
+      </Link>
 
-			<nav className="navbar">
-				<ul className="nav-list">
-					<li className="menu_link">
-						<Link href={"/home"}>Home</Link>
-					</li>
+      <nav className="navbar">
+        <ul className="nav-list">
+          <li className="menu_link">
+            <Link href={"/home"}>Home</Link>
+          </li>
 
-					<li className="menu_link">
-						<Link href={"/about"}>
-							About Us
-						</Link>
-					</li>
-					
-					<li className="menu_link">
-						<Link href={"/adventures"}>Adventures</Link>
-					</li>
+          <li className="menu_link">
+            <Link href={"/about"}>About Us</Link>
+          </li>
 
-				</ul>
-			</nav>
-		</header>
-	)
-}
+          <li className="menu_link">
+            <Link href={"/adventures"}>Adventures</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
