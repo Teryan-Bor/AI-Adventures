@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { storyFields } from "./storyFields";
-import { createStory } from "@/services/api";
-import { saveBook } from "@/services/storage";
+import { createStory } from "@/services/api/api";
+import { saveBook } from "@/services/storage/storage";
 
 export const useFormHandle = () => {
   const [currentStep, setCurrentStep] = useState(0);

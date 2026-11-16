@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./snow.scss";
-import "@/app/home/components/Snow/snow.css";
 import { FlakeSpan } from "../Background/components/FlakeSpan";
 import { generateParticles } from "../../utils/generateParticles";
 

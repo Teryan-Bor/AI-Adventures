@@ -1,5 +1,5 @@
 "use client";
-import { getCoordsAndWeather, getWeatherType } from "@/services/helper";
+import { getCoordsAndWeather, getWeatherType } from "@/services/weather/weatherHandler";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const WeatherContext = createContext({

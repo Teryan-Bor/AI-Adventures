@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getBooks } from "@/services/storage";
+import { getBooks } from "@/services/storage/storage";
 import "./adventures.scss";
 import { BookCard } from "./components/bookCard/BookCard";
 
