@@ -1,5 +1,5 @@
 import json
-from ..redis.redis_client import redis_client
+from ..redis_service import redis_client
 
 WEATHER_TTL = 600
 
