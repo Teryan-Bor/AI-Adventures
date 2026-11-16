@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
-import random from "../../utils/random";
-import "./hot.css";
+import { useEffect, useState } from "react"
+import "./hot.scss";
 import { generateParticles } from "../../utils/generateParticles";
 import { FlakeSpan } from "../Background/components/FlakeSpan";
-import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const Hot = ({ style, className = "" }) => {
   const [hotArr, setHot] = useState([]);
-
-  const { weather, status } = useWeather();
 
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
@@ -24,7 +20,7 @@ const Hot = ({ style, className = "" }) => {
       }}
     >
       {hotArr.map((item) => (
-        <FlakeSpan key={item.id} weather={"hot"} item={item} />
+        <FlakeSpan key={item.id} className={ 'bg-brown'} item={item} />
       ))}
     </div>
   );

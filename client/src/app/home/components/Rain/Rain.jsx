@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import random from "../../utils/random";
-import "./rain.css";
+import "./rain.scss";
 import { generateParticles } from "../../utils/generateParticles";
-import { useWeather } from "@/shared/WeatherContext/WeatherContext";
 
 const Rain = ({ style, className = "" }) => {
   const [rainsArr, setRains] = useState([]);

@@ -1,7 +1,7 @@
-export const FlakeSpan = ({ weather, item }) => {
+export const FlakeSpan = ({ className="", item }) => {
   return (
     <span
-      className={`flake-wrapper ${weather}`}
+      className={`flake-wrapper`}
       style={{
         "--x": `${item.x}%`,
         "--size": `${item.size}px`,
@@ -11,11 +11,11 @@ export const FlakeSpan = ({ weather, item }) => {
       }}
     >
       <span
-        className={`flake ${weather}`}
         style={{
           "--drift": `${item.drift}px`,
-          "--driftDuration": `${item.driftDuration}s`,
+          "--driftDuration": `${item.driftDuration}s`
         }}
+        className={className}
       />
     </span>
   );

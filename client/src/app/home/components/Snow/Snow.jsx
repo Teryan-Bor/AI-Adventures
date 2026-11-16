@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
-import "./snow.css";
+import { useEffect, useState } from "react";
+import "./snow.scss";
 import "@/app/home/components/Snow/snow.css";
 import { FlakeSpan } from "../Background/components/FlakeSpan";
 import { generateParticles } from "../../utils/generateParticles";
@@ -28,7 +28,7 @@ const Snow = ({ style, className = "" }) => {
       }}
     >
       {flakesArr.map((flake) => (
-        <FlakeSpan key={flake.id} weather={"snow"} item={flake} />
+        <FlakeSpan key={flake.id} className={'bg-white'} item={flake} />
       ))}
     </div>
   );

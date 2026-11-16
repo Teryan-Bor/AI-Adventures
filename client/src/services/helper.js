@@ -54,7 +54,7 @@ export const getWeatherType = (data) => {
     thunderstorm: "thunder",
     rain: "rain",
     drizzle: "rain",
-    mist: "default"
+    mist: "rain"
   }
 
   if (temp !== undefined && temp >= HOT_TEMP) { 
