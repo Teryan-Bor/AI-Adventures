@@ -1,13 +1,13 @@
-import os
 import httpx
 from dotenv import load_dotenv
 from fastapi import HTTPException
-from .WeatherQuery import WeatherQuery
+from ...schemas.weather import WeatherQuery
 from .weather_cache import weather_key, get_cached_weather, set_cached_weather
+from ...core.config import settings
 
 load_dotenv()
 
-weather_api=os.getenv("WEATHER_API_KEY")
+weather_api=settings.WEATHER_API_KEY
 
 async def getWeather(query: WeatherQuery):
     key = weather_key(query.lat, query.lon, query.city)

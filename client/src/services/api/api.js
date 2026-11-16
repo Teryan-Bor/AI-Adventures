@@ -32,8 +32,6 @@ export const fetchWeather = async (lat, lon) => {
   const url = `${API_URL}/weather${query ? `?${query}` : ""}`;
 
   const response = await fetch(url);
-  console.log(response, "weather response");
-  
 
   if(!response.ok) {
     throw new Error(`Weather request failed: ${response.status}`)
@@ -42,12 +40,12 @@ export const fetchWeather = async (lat, lon) => {
   const data = await response.json();
 
   try {
-   sessionStorage.setItem(
-    'user_weather',
-    JSON.stringify({ data, ts: Date.now() })
-  );
+    sessionStorage.setItem(
+      'user_weather',
+      JSON.stringify({ data, ts: Date.now() })
+    );
   } catch (error) {
-    throw new Error("Storage is unavailable")
+      throw new Error("Storage is unavailable")
   }
   
   return data;

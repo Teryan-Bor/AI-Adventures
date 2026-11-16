@@ -2,11 +2,11 @@ import logging
 from typing import Annotated
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from app.schemas import GeneratedStory, StoryRequest
+from server.app.schemas.chat import GeneratedStory, StoryRequest
 from app.services.gemini_service.gemini import generate_story
 from .services.weather_service.weather_service import getWeather
-from .services.weather_service.WeatherQuery import WeatherQuery
-from .services.redis_client import redis_ping
+from .schemas.weather import WeatherQuery
+from .services.redis.redis_client import redis_ping
 
 
 logging.basicConfig(level=logging.INFO)
