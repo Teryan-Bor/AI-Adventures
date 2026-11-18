@@ -1,7 +1,7 @@
 import json
 from google import genai
 from google.genai import types
-from server.app.schemas.chat import StoryRequest
+from ...schemas.chat import StoryRequest
 from .prompts import STORYTELLER_SYSTEM_PROMPT, promptFn
 from ...core.config import settings
 

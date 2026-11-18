@@ -36,7 +36,7 @@ services:
     container_name: ai-adventures-server
     env_file: ./server/.env
     environment:
-      REDIS_URL: redis://redis:6379
+      REDIS_URL: redis://redis:6380
     ports:
       - "8000:8000"
     depends_on:
