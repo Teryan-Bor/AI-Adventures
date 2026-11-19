@@ -13,6 +13,15 @@ class Settings(BaseSettings):
     WEATHER_API_KEY: str | None = None
     
     GEMINI_MODEL: str | None = None
+    
+    DB_USER: str
+    DB_NAME: str
+    DB_PASSWORD: str
+    DB_POST: str
+    @property
+    def DB_URL_asyncpg(self) -> str:
+        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASSWORD}@localhost:{self.DB_POST}/{self.DB_NAME}"
+    
 
     model_config = SettingsConfigDict(
         env_file=".env", env_file_encoding="utf-8", extra="ignore"
